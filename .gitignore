@@ -72,4 +72,5 @@ scripts/audio_scenes/
 scripts/long_audio_scenes/
 scripts/*.wav
 scripts/*.mp3
+scripts/ppt_slide_images/
 /schemaforge_showcase_video.mp4
