@@ -1,23 +1,30 @@
-# SchemaForge Data-OS: Public GitHub Repository Publishing Guide
+# SchemaForge Data-OS: Public GitHub Repository
 
-> **Target:** Publishing the verified, clean SchemaForge Data-OS codebase to a public GitHub repository with zero credential exposure.
+> **Live Public GitHub Repository:** [https://github.com/5h1v4n5h/schemaforge-data-os](https://github.com/5h1v4n5h/schemaforge-data-os)  
+> **Status:** 🟢 Successfully Deployed & Publicly Accessible  
+> **Default Branch:** `main`  
+> **Zero Credential Guarantee:** Verified (100% ADC / environment variable configuration)  
 
 ---
 
-## 1. Pre-Flight Verification Checklist
+## 1. Repository Quick Links
 
-Before publishing, verify the repository has zero leaked secrets or personal credentials:
+- **Repository URL:** [https://github.com/5h1v4n5h/schemaforge-data-os](https://github.com/5h1v4n5h/schemaforge-data-os)
+- **Live Cloud Run Instance:** [https://schemaforge-app-605335322761.us-central1.run.app](https://schemaforge-app-605335322761.us-central1.run.app)
+- **PowerPoint Pitch Deck:** [`docs/SchemaForge_DataOS_PitchDeck.pptx`](SchemaForge_DataOS_PitchDeck.pptx)
+- **Technical Architecture Manual:** [`docs/ARCHITECTURE_AND_SYSTEM_MANUAL.md`](ARCHITECTURE_AND_SYSTEM_MANUAL.md)
+
+---
+
+## 2. Pushing Future Updates to GitHub
+
+To push future local commits to GitHub:
 
 ```bash
-# 1. Verify working directory is clean of untracked secrets
-git status
-
-# 2. Confirm no private keys or tokens exist in tracked files
-git grep -i "BEGIN PRIVATE KEY"
-git grep -i "client_secret"
+git add .
+git commit -m "your commit message"
+git push origin main
 ```
-
-✅ **Status:** Verified clean. All credentials authenticate via Google Cloud Application Default Credentials (ADC) or environment variables (`.env.example`).
 
 ---
 
