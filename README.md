@@ -40,18 +40,19 @@ Instead of relying on brittle manual regex or unverified LLM prompts, SchemaForg
 
 ---
 
-## 🎬 AI Video Pitch & Walkthrough (Narrated by Shivansh Sharma)
+## 🎬 Comprehensive System Video Pitch & Technical Walkthrough (10:02)
 
-> **Voice Narration:** Shivansh Sharma  
-> **Format:** 1080p Full HD (1920x1080) • H.264 / AAC Stereo • Duration: 1:35  
+> **Format:** 1080p Full HD (1920x1080) • H.264 / AAC Stereo • Duration: 10:02 (602 Seconds)  
 > **Video File:** [`docs/assets/schemaforge_showcase_video.mp4`](docs/assets/schemaforge_showcase_video.mp4) *(also at root: [`schemaforge_showcase_video.mp4`](schemaforge_showcase_video.mp4))*
 
-A broadcast-grade video presentation covering the entire problem statement and solution architecture:
-- **Scene 1 (0:00 - 0:23): The $100B Problem:** Why traditional batch pipelines (Airflow, dbt) crash on dirty polymorphic enterprise files.
-- **Scene 2 (0:23 - 0:43): The ARC-AGI Ingestion Agent:** Neuro-symbolic Python AST synthesis using Google Gemini 1.5 Pro.
-- **Scene 3 (0:43 - 1:00): Formal Safety Sandbox & Invariants:** gVisor isolation, Pandera schema contracts, and financial balance conservation ($\sum \text{Gross} \equiv \sum \text{Billed}$).
-- **Scene 4 (1:00 - 1:16): Google Cloud Native Architecture:** Cloud Run compute, Pub/Sub buffer & DLQ, BigQuery Lakehouse, and Cloud Logging.
-- **Scene 5 (1:16 - 1:35): Live Solution Walkthrough:** Production sub-second self-healing (406.8ms), DLQ circuit breakers, and E-Commerce Copilot.
+A broadcast-grade 10-minute technical demonstration and deep architectural walkthrough across 7 structured scenes:
+- **Scene 1 (0:00 - 1:25): The $100B Enterprise Data Downtime Crisis:** Breakdown of dirty polymorphic enterprise payloads ([`sample_data/messy_sap_orders.json`](sample_data/messy_sap_orders.json)) and why traditional batch pipelines (Airflow, dbt, Spark) crash.
+- **Scene 2 (1:25 - 2:50): Competition Track Justification:** Strategic justification for building an Autonomous Data-OS at the ingestion boundary rather than superficial GenAI chatbots.
+- **Scene 3 (2:50 - 4:23): The Novel Approach: ARC-AGI Ingestion Agent:** How SchemaForge adapts François Chollet's Abstraction & Reasoning Corpus (ARC-AGI) to neuro-symbolic program synthesis.
+- **Scene 4 (4:23 - 5:50): Deep Google Gemini Utilization:** Dual-model architecture: low-entropy Gemini 1.5 Pro ($T=0.2$) for deterministic Python AST code generation and Gemini 1.5 Flash for conversational analytics.
+- **Scene 5 (5:50 - 7:18): Formal Safety Sandbox & Invariants:** gVisor container sandbox security, prohibited AST scanning, Pandera schema contracts, and financial balance conservation ($\sum \text{Gross} \equiv \sum \text{Billed}$).
+- **Scene 6 (7:18 - 8:40): Google Cloud Native Architecture:** Stateless Cloud Run compute (80 conns/container), Pub/Sub streaming buffer & Dead-Letter Queue (DLQ), and BigQuery golden analytical lakehouse.
+- **Scene 7 (8:40 - 10:02): Live Production Walkthrough & Real Results:** Live demonstration on Google Cloud Run: 406.8ms Mean Time to Self-Heal, DLQ circuit breakers, and Tri-Modal E-Commerce Copilot.
 
 ---
 
@@ -59,7 +60,7 @@ A broadcast-grade video presentation covering the entire problem statement and s
 
 | Document | Purpose |
 |---|---|
-| [**Showcase Video Walkthrough (.mp4)**](docs/assets/schemaforge_showcase_video.mp4) | **1080p AI Video:** 94-second broadcast pitch narrated by Shivansh Sharma covering problem statement & solution architecture. |
+| [**Showcase Video Walkthrough (.mp4)**](docs/assets/schemaforge_showcase_video.mp4) | **1080p Demonstration Video:** 10-minute broadcast presentation covering problem statement, ARC-AGI novelty, track justification, and live solution walkthrough. |
 | [**ARC-AGI File Ingestion Walkthrough**](docs/SHOWCASE_WALKTHROUGH.md) | **Core Walkthrough:** Step-by-step evaluation of the ARC-AGI agent ingesting dirty polymorphic files into BigQuery. |
 | [**System Architecture & Technical Manual**](docs/ARCHITECTURE_AND_SYSTEM_MANUAL.md) | Comprehensive engineering manual, GCP services matrix, and end-to-end data flow. |
 | [**Executive Pitch Deck (.pptx)**](docs/SchemaForge_DataOS_PitchDeck.pptx) | **Complete 10-slide PowerPoint Presentation (.pptx)** with 16:9 dark-mode slides and architecture embeds. |

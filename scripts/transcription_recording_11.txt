@@ -1,0 +1,52 @@
+ Hello, hello hello Hello this is your answer now This is my actual voice which has been recorded right now You should have taken this voice only please don't make it some high-pitched low-pitched noise This is my voice better. I'm sure one-chalma and this is my voice And I can I will try to speak all the work so that you'll be able to understand Water So, Nevali party vites are calling to more people to join in the party. I will just open up some random text and start reading it. So, he gave you three great angles to play with. Marvel's Marvel movies, sci-fi conspiracies, and only having seen Kuntara from South. So, keep it a play full talking stage, so it should be like sci-fi with the tourist. You might just be my kind of an inch to, for the most ridiculous conspiracy theory you actually have believed. Then starting from your South Cinema Journey with Pandara is setting the bar dangerously high. We definitely need to fix your wash list. Dubbed the boss in Emma, it's different, you know. So let me read you something more serious about from this. Okay, here's it. So here are the three strong options from an ophthalmologist, comllism, I had linked a little different strategy that now we had lines allow to 250 characters use the spikes symbol to separate key ideas, a crotus can, these few are okay. There's all that things. So the Amazon is G target. This is strongest for Amazon rule because it hits the suited system. Reduble is in the algorithm, similarly. Software engineering at VS, AWS and sure certified expertise in the suited system. So let's architecture and generate tools by the already at all this thing. Okay let's think it kills something more. Okay so this is one more thing which I will read. Google search cannot show all that to these such as like stories, supplies or every comment. The world Instagram blog search engine crawlers from indexing user interaction logs and dynamic comments. However, you can refine your Google search operator to audit every public indexed post, wheelbier or caption mentions associated with your handle. If I Google search queries, use these targeted search operators to filter what has indexed for your username. Only post reads mentioning your handle. mentioned on Instagram, excluding your main profile page, mentioned with an accurate tag in public captions. Public mentioned of an Instagram hand-in-luck calls, as I said before, but Google Search misses most of Instagram's activity. Given if an action is technically public, in certain Instagram apps, Google only indexes a small fraction of Instagram data, comments, likes, and hidden from crawlers. Instagram loads, comments, dynamically behind a login wall and block Googlebot from index and call I'll the post or most individual comment below a post. Personal accounts are excluded. Undermeters, search indexing doves, Google only indexes public posts and reels from public professional accounts belonging to user over 18 who has search engine next enabled. So, these are all the things which I wanted to share. I would have on this stay up here and this is my voice which I wanted to get replicated. Please don't replicate some other voice for this implementation.
+
+--- CHUNKS ---
+[0.0 - 2.0]  Hello, hello hello
+[2.12 - 4.12]  Hello this is your answer now
+[4.28 - 8.0]  This is my actual voice which has been recorded right now
+[8.28 - 12.62]  You should have taken this voice only please don't make it some high-pitched low-pitched noise
+[14.0 - 17.1]  This is my voice better. I'm sure one-chalma and this is my voice
+[17.1 - 22.88]  And I can I will try to speak all the work so that you'll be able to understand
+[23.44 - 24.72]  Water
+[0.0 - 6.0]  So, Nevali party vites are calling to more people to join in the party.
+[6.0 - 10.0]  I will just open up some random text and start reading it.
+[10.0 - 14.0]  So, he gave you three great angles to play with.
+[14.0 - 20.0]  Marvel's Marvel movies, sci-fi conspiracies, and only having seen Kuntara from South.
+[20.0 - 25.0]  So, keep it a play full talking stage, so it should be like sci-fi
+[0.0 - 7.12]  with the tourist. You might just be my kind of an inch to, for the most ridiculous
+[7.12 - 12.28]  conspiracy theory you actually have believed. Then starting from your South
+[12.28 - 18.12]  Cinema Journey with Pandara is setting the bar dangerously high. We definitely
+[18.12 - 22.4]  need to fix your wash list. Dubbed the boss in Emma, it's different, you know.
+[0.0 - 8.0]  So let me read you something more serious about from this.
+[8.0 - 10.0]  Okay, here's it.
+[10.0 - 15.0]  So here are the three strong options from an ophthalmologist,
+[15.0 - 18.0]  comllism, I had linked a little different strategy that
+[18.0 - 23.0]  now we had lines allow to 250 characters use the spikes
+[23.0 - 26.0]  symbol to separate key ideas, a crotus can, these few are okay.
+[26.0 - 27.0]  There's all that things.
+[0.0 - 6.24]  So the Amazon is G target. This is strongest for Amazon rule because it hits the suited system.
+[6.24 - 11.92]  Reduble is in the algorithm, similarly. Software engineering at VS, AWS and sure certified
+[11.92 - 17.2]  expertise in the suited system. So let's architecture and generate tools by the
+[0.0 - 16.8]  already at all this thing. Okay let's think it kills something more. Okay so this is one more thing
+[16.8 - 21.28]  which I will read. Google search cannot show all that to these such as like stories,
+[21.28 - 26.8]  supplies or every comment. The world Instagram blog search engine crawlers from indexing
+[0.0 - 3.0]  user interaction logs and dynamic comments.
+[3.0 - 8.8]  However, you can refine your Google search operator to audit every public indexed post,
+[8.8 - 12.8]  wheelbier or caption mentions associated with your handle.
+[12.8 - 20.4]  If I Google search queries, use these targeted search operators to filter what has indexed
+[20.4 - 22.4]  for your username.
+[22.4 - 25.4]  Only post reads mentioning your handle.
+[0.0 - 7.28]  mentioned on Instagram, excluding your main profile page, mentioned with an accurate tag in public
+[7.28 - 9.04]  captions.
+[9.04 - 15.68]  Public mentioned of an Instagram hand-in-luck calls, as I said before, but Google Search misses
+[15.68 - 17.76]  most of Instagram's activity.
+[17.76 - 23.04]  Given if an action is technically public, in certain Instagram apps, Google only indexes
+[23.04 - 27.76]  a small fraction of Instagram data, comments, likes, and hidden from crawlers.
+[0.0 - 5.6]  Instagram loads, comments, dynamically behind a login wall and block Googlebot from index
+[5.6 - 9.44]  and call I'll the post or most individual comment below a post.
+[9.44 - 12.08]  Personal accounts are excluded.
+[12.08 - 18.48]  Undermeters, search indexing doves, Google only indexes public posts and reels from public
+[18.48 - 25.56]  professional accounts belonging to user over 18 who has search engine next enabled.
+[0.0 - 3.0]  So, these are all the things which I wanted to share.
+[3.0 - 7.0]  I would have on this stay up here and this is my voice which I wanted to get replicated.
+[7.0 - 12.0]  Please don't replicate some other voice for this implementation.
