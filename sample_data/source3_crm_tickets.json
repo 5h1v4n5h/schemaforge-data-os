@@ -1,0 +1,70 @@
+[
+  {
+    "ticket_id": "TKT-4401",
+    "order_id": "ORD-88101",
+    "requester": {
+      "full_name": "John Doe",
+      "email": "johndoe@acmecorp.com",
+      "company_name": "Acme Corporation Pte Ltd",
+      "company_domain": "acmecorp.com",
+      "phone": "+1-415-555-0199"
+    },
+    "subject": "Need official tax invoice for order ORD-88101",
+    "priority": "normal",
+    "status": "closed",
+    "csat_score": 5,
+    "resolution_time_hours": 2.4,
+    "created_at": "2026-09-13T10:15:00Z"
+  },
+  {
+    "ticket_id": "TKT-4402",
+    "order_id": "ORD-88102",
+    "requester": {
+      "full_name": "Sarah Connor",
+      "email": "sarah.c@cyberdyne.io",
+      "company_name": "Cyberdyne Systems Inc",
+      "company_domain": "cyberdyne.io",
+      "phone": "+1-512-555-0142"
+    },
+    "subject": "Enterprise warranty inquiry for TITAN-AI-ACCEL",
+    "priority": "high",
+    "status": "closed",
+    "csat_score": 5,
+    "resolution_time_hours": 1.1,
+    "created_at": "2026-09-13T14:30:00Z"
+  },
+  {
+    "ticket_id": "TKT-4403",
+    "order_id": "ORD-88103",
+    "requester": {
+      "full_name": "Alexander Chen",
+      "email": "alex@chenlogistics.com.sg",
+      "company_name": "Chen Logistics Singapore Pte Ltd",
+      "company_domain": "chenlogistics.com.sg",
+      "phone": "+65-6789-0123"
+    },
+    "subject": "Delivery SLA delay status check for ORD-88103",
+    "priority": "urgent",
+    "status": "closed",
+    "csat_score": 3,
+    "resolution_time_hours": 6.8,
+    "created_at": "2026-09-19T08:00:00Z"
+  },
+  {
+    "ticket_id": "TKT-4404",
+    "order_id": "ORD-88104",
+    "requester": {
+      "full_name": "Elena Rostova",
+      "email": "e_rostova@novacorp.de",
+      "company_name": "Nova Technologies GmbH",
+      "company_domain": "novacorp.de",
+      "phone": "+49-89-555-0177"
+    },
+    "subject": "Request for warehouse dock loading clearance",
+    "priority": "normal",
+    "status": "closed",
+    "csat_score": 4,
+    "resolution_time_hours": 3.5,
+    "created_at": "2026-09-16T11:00:00Z"
+  }
+]

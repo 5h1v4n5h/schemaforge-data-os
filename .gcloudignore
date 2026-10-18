@@ -1,0 +1,14 @@
+.venv
+__pycache__
+*.pyc
+.git
+.github
+*.log
+.DS_Store
+scratch/
+test_*.py
+debug_*.py
+extract_*.py
+fetch_*.py
+get_*.py
+find_*.py

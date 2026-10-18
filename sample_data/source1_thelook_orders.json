@@ -1,0 +1,84 @@
+[
+  {
+    "order_id": "ORD-88101",
+    "user_id": 10421,
+    "user_profile": {
+      "full_name": "Johnathan Doe",
+      "email": "j_doe@acmecorp.com",
+      "country": "United States",
+      "state": "CA",
+      "postal_code": "94105"
+    },
+    "created_at": "2026-09-12T14:30:00Z",
+    "order_status": "Complete",
+    "line_items": [
+      { "product_id": 9921, "sku": "WIDGET-PRO-A", "quantity": 2, "unit_price": 45.00 },
+      { "product_id": 1022, "sku": "CABLE-USB4", "quantity": 1, "unit_price": 75.50 }
+    ],
+    "shipping_fee": 10.00,
+    "currency": "USD",
+    "promised_delivery_date": "2026-09-16",
+    "actual_delivery_date": "2026-09-15"
+  },
+  {
+    "order_id": "ORD-88102",
+    "user_id": 10422,
+    "user_profile": {
+      "full_name": "Sarah Connor",
+      "email": "sarah.c@cyberdyne.io",
+      "country": "United States",
+      "state": "TX",
+      "postal_code": "78701"
+    },
+    "created_at": "2026-09-13T09:15:00Z",
+    "order_status": "Complete",
+    "line_items": [
+      { "product_id": 4410, "sku": "TITAN-AI-ACCEL", "quantity": 1, "unit_price": 220.00 }
+    ],
+    "shipping_fee": 0.00,
+    "currency": "USD",
+    "promised_delivery_date": "2026-09-18",
+    "actual_delivery_date": "2026-09-17"
+  },
+  {
+    "order_id": "ORD-88103",
+    "user_id": 10423,
+    "user_profile": {
+      "full_name": "Alexander Chen",
+      "email": "a_chen@chenlogistics.com.sg",
+      "country": "Singapore",
+      "state": "SG",
+      "postal_code": "018989"
+    },
+    "created_at": "2026-09-14T11:45:00Z",
+    "order_status": "Complete",
+    "line_items": [
+      { "product_id": 8812, "sku": "SENSOR-IOT-MINI", "quantity": 4, "unit_price": 15.00 },
+      { "product_id": 7711, "sku": "GATEWAY-HUB-LITE", "quantity": 2, "unit_price": 32.50 }
+    ],
+    "shipping_fee": 12.50,
+    "currency": "USD",
+    "promised_delivery_date": "2026-09-19",
+    "actual_delivery_date": "2026-09-20"
+  },
+  {
+    "order_id": "ORD-88104",
+    "user_id": 10424,
+    "user_profile": {
+      "full_name": "Elena Rostova",
+      "email": "e_rostova@novacorp.de",
+      "country": "Germany",
+      "state": "BY",
+      "postal_code": "80331"
+    },
+    "created_at": "2026-09-15T16:20:00Z",
+    "order_status": "Complete",
+    "line_items": [
+      { "product_id": 5501, "sku": "RACK-SERVER-42U", "quantity": 1, "unit_price": 500.00 }
+    ],
+    "shipping_fee": 25.00,
+    "currency": "USD",
+    "promised_delivery_date": "2026-09-22",
+    "actual_delivery_date": "2026-09-21"
+  }
+]

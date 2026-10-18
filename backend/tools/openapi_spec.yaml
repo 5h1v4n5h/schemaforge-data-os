@@ -1,0 +1,52 @@
+openapi: 3.0.0
+info:
+  title: SchemaForge Neuro-Symbolic Synthesis Toolbox API
+  version: 1.0.0
+  description: Deterministic schema profiling, gVisor code execution, diffing, and Pandera invariant verification tools.
+servers:
+  - url: https://schemaforge-pipeline-uc.a.run.app
+paths:
+  /api/profile:
+    post:
+      summary: Profile messy input dataset and target schema contract
+      operationId: inspect_schema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [raw_input_data, target_ddl]
+              properties:
+                raw_input_data:
+                  type: string
+                  description: Raw messy sample (JSON or CSV string).
+                target_ddl:
+                  type: string
+                  description: Target BigQuery or relational table DDL.
+      responses:
+        '200':
+          description: Structural profile, inferred JSON paths, and stratified outlier sample rows.
+
+  /api/synthesize:
+    post:
+      summary: Execute 6-stage neuro-symbolic program synthesis and verification loop
+      operationId: synthesize_pipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [raw_input_data, target_ddl]
+              properties:
+                raw_input_data:
+                  type: string
+                target_ddl:
+                  type: string
+                target_table_name:
+                  type: string
+                  default: "gold_analytics.fact_orders"
+      responses:
+        '200':
+          description: Verified transformation code, Pandera schema, and Cloud Run deployment bundle.

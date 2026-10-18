@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchemaForge Data-OS | Flagship Enterprise Data Observability &amp; Ingestion Copilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Vega & Vega-Lite for Declarative Interactive Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       ZONE 1: TOP GLOBAL COMMAND HEADER (Linear / Vercel Aesthetic)
+       ========================================================================= -->
+  <header class="app-header">
+    <!-- Left: Brand Identity & Multi-Tenant Switcher -->
+    <div class="header-left">
+      <div class="brand">
+        <div class="brand-logo" title="SchemaForge Autonomous Data-OS">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M32 10 L50 20 L50 44 L32 54 L14 44 L14 20 Z" stroke="url(#logoGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="rgba(59, 130, 246, 0.15)" />
+            <path d="M32 10 L32 25" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M50 44 L38 36" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M14 44 L26 36" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="32" cy="10" r="3" fill="#60a5fa" />
+            <circle cx="50" cy="20" r="3" fill="#a78bfa" />
+            <circle cx="50" cy="44" r="3" fill="#818cf8" />
+            <circle cx="32" cy="54" r="3" fill="#38bdf8" />
+            <circle cx="14" cy="44" r="3" fill="#818cf8" />
+            <circle cx="14" cy="20" r="3" fill="#a78bfa" />
+            <path d="M32 24 L40 32 L32 40 L24 32 Z" fill="#10b981" />
+            <circle cx="32" cy="32" r="3.5" fill="#ffffff" />
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#60a5fa" />
+                <stop offset="50%" stop-color="#818cf8" />
+                <stop offset="100%" stop-color="#c084fc" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text-group">
+          <div class="brand-name">
+            SchemaForge <span class="badge-neuro">DATA-OS</span>
+          </div>
+          <div class="brand-sub">Autonomous Ingestion &amp; Observability Platform</div>
+        </div>
+      </div>
+
+      <!-- Multi-Tenant Workspace Switcher -->
+      <div class="tenant-selector-wrapper" title="Switch Multi-Tenant Enterprise Workspace">
+        <div class="tenant-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        </div>
+        <select id="tenantSelect" class="tenant-dropdown">
+          <option value="t_nexus_fintech" selected>Nexus-FinTech-Core (FinTech)</option>
+          <option value="t_acme_logistics">Acme-Logistics-Prod (Logistics)</option>
+          <option value="t_bharat_agri">BharatAgri-Core (AgriTech)</option>
+          <option value="t_thelook_ecom">TheLook-Omnichannel (E-Commerce)</option>
+          <option value="t_apex_payments">Apex-Payments-Global (FinTech)</option>
+          <option value="t_sovereign_bank">Sovereign-Bank-SaaS (FinTech)</option>
+          <option value="t_chen_logistics">Chen-Logistics-SG (Logistics)</option>
+          <option value="t_eurorail_cargo">EuroRail-Cargo-Net (Logistics)</option>
+          <option value="t_nordic_retail">Nordic-Retail-Group (E-Commerce)</option>
+          <option value="t_acro_apac">Acro-Corp-APAC (E-Commerce)</option>
+          <option value="t_aegis_health">Aegis-Health-HIPAA (Healthcare)</option>
+          <option value="t_biogen_clinical">BioGen-Clinical-Mart (Healthcare)</option>
+          <option value="t_omnicare_tele">OmniCare-Telemetry (Healthcare)</option>
+          <option value="t_hydroflow_grid">HydroFlow-Grid (Infrastructure)</option>
+          <option value="t_aerodrone_tele">AeroDrone-Telemetry (Aerospace)</option>
+        </select>
+      </div>
+
+      <!-- Live System Pulse Badge -->
+      <div class="system-pulse-badge" title="Continuous Cloud Run Telemetry Live">
+        <span class="pulse-ring"></span>
+        <span class="pulse-dot"></span>
+        <span class="pulse-text">System Healthy • 99.98% Uptime • Cloud Run rev-00010</span>
+      </div>
+    </div>
+
+    <!-- Center: Global Cmd+K Command Bar -->
+    <div class="header-center">
+      <button id="btnOpenCommandPalette" class="cmd-k-trigger" title="Press ⌘K or Ctrl+K to open Command Palette">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cmd-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="cmd-placeholder">Search pipelines, tables, chaos drills...</span>
+        <kbd class="cmd-kbd">⌘K</kbd>
+      </button>
+    </div>
+
+    <!-- Right: Navigation Switcher & Live Controls -->
+    <div class="header-right">
+      <nav class="top-nav-switcher">
+        <button class="nav-mode-btn active" id="btnNavSynthesis" data-view="viewSynthesis">
+          <span class="nav-icon">⚡</span> Synthesis &amp; Chaos
+        </button>
+        <button class="nav-mode-btn" id="btnNavObservability" data-view="viewObservability">
+          <span class="nav-icon">🛡️</span> Observability &amp; DAG
+        </button>
+        <button class="nav-mode-btn" id="btnNavCopilot" data-view="viewCopilot">
+          <span class="nav-icon">🤖</span> E-Commerce Copilot
+        </button>
+      </nav>
+
+      <button id="btnTogglePulse" class="pulse-toggle-btn" title="Toggle Live Continuous Traffic Daemon">
+        <span class="pulse-indicator"></span> Stream: <strong id="lblPulseState">LIVE</strong>
+      </button>
+
+      <span class="badge-pill gc-pill" title="Physical Google Cloud BigQuery Connected">
+        <span class="pulse-dot"></span> BigQuery Live
+      </span>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       ZONE 2: KPI & CLOUD TELEMETRY BENTO STRIP (Datadog / Vercel Style)
+       ========================================================================= -->
+  <section class="telemetry-bento-strip" id="globalTelemetryStrip">
+    <!-- Card 1: Total Events Ingested -->
+    <div class="bento-metric-card">
+      <div class="bento-header">
+        <span class="bento-title">TOTAL EVENTS INGESTED</span>
+        <span class="bento-badge badge-emerald">↑ 12.4% vs hr</span>
+      </div>
+      <div class="bento-metric-body">
+        <div class="bento-val" id="teleTotalRows">52,500</div>
+        <div class="bento-sparkline">
+          <svg viewBox="0 0 100 28" preserveAspectRatio="none" class="sparkline-svg">
+            <defs>
+              <linearGradient id="sparkBlueGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,24 Q15,22 25,18 T50,14 T75,8 T100,3 L100,28 L0,28 Z" fill="url(#sparkBlueGrad)"/>
+            <path d="M0,24 Q15,22 25,18 T50,14 T75,8 T100,3" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bento-footer">
+        <span class="bento-sub"><span id="teleThroughput" class="text-accent">54.2 eps</span> across 3 connectors</span>
+        <span class="bento-status">Pipeline Active</span>
+      </div>
+    </div>
+
+    <!-- Card 2: Autonomous Schema Repairs (30d) -->
+    <div class="bento-metric-card">
+      <div class="bento-header">
+        <span class="bento-title">AUTONOMOUS REPAIRS (30D)</span>
+        <span class="bento-badge badge-emerald">100% Healed</span>
+      </div>
+      <div class="bento-metric-body">
+        <div class="bento-val text-emerald" id="teleHealedDrifts">42</div>
+        <div class="bento-sparkline">
+          <svg viewBox="0 0 100 28" preserveAspectRatio="none" class="sparkline-svg">
+            <defs>
+              <linearGradient id="sparkGreenGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,26 L20,26 L30,12 L40,26 L60,26 L70,8 L80,26 L100,10 L100,28 L0,28 Z" fill="url(#sparkGreenGrad)"/>
+            <path d="M0,26 L20,26 L30,12 L40,26 L60,26 L70,8 L80,26 L100,10" fill="none" stroke="#10b981" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bento-footer">
+        <span class="bento-sub">Zero downtime or manual intervention</span>
+        <span class="bento-status text-emerald">Sub-second Auto-Drift</span>
+      </div>
+    </div>
+
+    <!-- Card 3: Mean Time to Self-Heal (MTTR) -->
+    <div class="bento-metric-card">
+      <div class="bento-header">
+        <span class="bento-title">MEAN TIME TO SELF-HEAL (MTTR)</span>
+        <span class="bento-badge badge-emerald">SLA &lt; 200ms MET</span>
+      </div>
+      <div class="bento-metric-body">
+        <div class="bento-val text-purple" id="teleMttr">184.2 ms</div>
+        <div class="bento-sparkline">
+          <svg viewBox="0 0 100 28" preserveAspectRatio="none" class="sparkline-svg">
+            <defs>
+              <linearGradient id="sparkPurpleGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#a855f7" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#a855f7" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,16 Q25,12 50,15 T100,14 L100,28 L0,28 Z" fill="url(#sparkPurpleGrad)"/>
+            <path d="M0,16 Q25,12 50,15 T100,14" fill="none" stroke="#a855f7" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bento-footer">
+        <span class="bento-sub">p95 Ingestion Latency: <span id="teleLatency">112.5 ms</span></span>
+        <span class="bento-status">gVisor Sandbox</span>
+      </div>
+    </div>
+
+    <!-- Card 4: Active Dead-Letter Queue (DLQ) -->
+    <div class="bento-metric-card">
+      <div class="bento-header">
+        <span class="bento-title">ACTIVE DEAD-LETTER QUEUE (DLQ)</span>
+        <span class="bento-badge badge-emerald" id="bentoDlqBadge">ALL CLEAR</span>
+      </div>
+      <div class="bento-metric-body">
+        <div class="bento-val text-emerald" id="bentoDlqVal">0 Quarantined</div>
+        <div class="bento-sparkline">
+          <svg viewBox="0 0 100 28" preserveAspectRatio="none" class="sparkline-svg">
+            <path d="M0,24 L100,24 L100,28 L0,28 Z" fill="rgba(100, 116, 139, 0.15)"/>
+            <path d="M0,24 L100,24" fill="none" stroke="#64748b" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bento-footer">
+        <span class="bento-sub">DQS Composite: <span id="teleDqs" class="text-emerald">99.4% (A+)</span></span>
+        <span class="bento-status text-emerald">Poison-Pill Shield</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ZONE 3: SPLIT-PANE INTERACTIVE WORKSPACE (Hero Showcase)
+       ========================================================================= -->
+
+  <!-- VIEW 1: SYNTHESIS & CHAOS SANDBOX -->
+  <div id="viewSynthesis" class="view-section active">
+    <div class="split-pane-hero-workspace">
+      <!-- Left Pane: Live Pipeline & Drift Chaos Sandbox -->
+      <div class="hero-pane-left">
+        <div class="pane-card-header">
+          <div class="pane-title-group">
+            <span class="icon-bubble">⚡</span>
+            <div>
+              <h2 class="pane-title">Live Pipeline &amp; Drift Chaos Sandbox</h2>
+              <p class="pane-sub">Fire real mutated JSON payloads into Pub/Sub and observe autonomous AST healing</p>
+            </div>
+          </div>
+          <span class="badge-tag">GCP Ingestion Stream</span>
+        </div>
+
+        <!-- 4 Scenario Cards -->
+        <div class="chaos-scenarios-grid">
+          <div class="btn-chaos-preset active" data-scenario="scenario_a">
+            <div class="preset-top">
+              <span class="preset-name">Scenario A: Breaking Schema Mutation</span>
+              <span class="preset-pill pill-rose">Breaking</span>
+            </div>
+            <p class="preset-desc">Renames <code>customer_id -&gt; client_uuid</code> and splits <code>full_amount</code> into <code>{currency, value_cents}</code>.</p>
+          </div>
+          <div class="btn-chaos-preset" data-scenario="scenario_b">
+            <div class="preset-top">
+              <span class="preset-name">Scenario B: Dirty Unstructured Input</span>
+              <span class="preset-pill pill-amber">Dirty Strings</span>
+            </div>
+            <p class="preset-desc">Unstructured cargo strings, Lbs-to-Kg unit conversion, and multi-currency parsing.</p>
+          </div>
+          <div class="btn-chaos-preset" data-scenario="scenario_c">
+            <div class="preset-top">
+              <span class="preset-name">Scenario C: Multi-Tenant Polymorphic Ingestion</span>
+              <span class="preset-pill pill-purple">Polymorphic</span>
+            </div>
+            <p class="preset-desc">Differing timestamp and currency formats between FinTech and Healthcare workspaces.</p>
+          </div>
+          <div class="btn-chaos-preset" data-scenario="scenario_d">
+            <div class="preset-top">
+              <span class="preset-name">Scenario D: Enterprise Cost Guardrail</span>
+              <span class="preset-pill pill-blue">Cost Budget</span>
+            </div>
+            <p class="preset-desc">Token budget limits with cached AST inductive transformation rules.</p>
+          </div>
+        </div>
+
+        <!-- Fire Chaos Action -->
+        <div class="chaos-trigger-bar">
+          <div class="target-meta">
+            Target Table: <code id="lblChaosTarget">gold_analytics.fact_orders</code>
+          </div>
+          <button id="btnFireChaos" class="btn-fire-chaos">
+            <span class="btn-icon">⚡</span> Fire Mutated Payload into Pub/Sub &amp; Self-Heal
+          </button>
+        </div>
+
+        <!-- Real-Time Pipeline State Transition Stepper -->
+        <div class="pipeline-stepper-box">
+          <div class="stepper-title">Live Pipeline State Transition Sequence</div>
+          <div class="stepper-track" id="chaosStateStepper">
+            <div class="stepper-step completed" id="stepIngest">
+              <div class="step-circle"><span class="step-num">1</span></div>
+              <div class="step-meta">
+                <span class="step-label">Payload Ingested</span>
+                <span class="step-status">Pub/Sub Topic</span>
+              </div>
+            </div>
+            <div class="step-line" id="line1"></div>
+            <div class="stepper-step" id="stepDetect">
+              <div class="step-circle"><span class="step-num">2</span></div>
+              <div class="step-meta">
+                <span class="step-label">Drift Detected</span>
+                <span class="step-status">AST Discrepancy</span>
+              </div>
+            </div>
+            <div class="step-line" id="line2"></div>
+            <div class="stepper-step" id="stepSynthesize">
+              <div class="step-circle"><span class="step-num">3</span></div>
+              <div class="step-meta">
+                <span class="step-label">Synthesizing Rule</span>
+                <span class="step-status">Gemini + gVisor</span>
+              </div>
+            </div>
+            <div class="step-line" id="line3"></div>
+            <div class="stepper-step" id="stepReplay">
+              <div class="step-circle"><span class="step-num">4</span></div>
+              <div class="step-meta">
+                <span class="step-label">Pandera Verified</span>
+                <span class="step-status">Committed to BQ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Pipeline Bar -->
+        <div class="custom-pipeline-bar">
+          <div class="custom-bar-header">
+            <span>Custom Transformation Studio:</span>
+            <div class="preset-tabs">
+              <button id="btnPresetSap" class="btn-preset active">Polymorphic SAP</button>
+              <button id="btnPresetWebhook" class="btn-preset">Webhook Drift</button>
+              <button id="btnPresetMastering" class="btn-preset">✨ Multi-Source</button>
+            </div>
+          </div>
+          <button id="btnSynthesize" class="btn-secondary-action">
+            <span>⚡ Synthesize Custom Pipeline</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Pane: Neuro-Symbolic Synthesis & Schema Diff Inspector -->
+      <div class="hero-pane-right">
+        <div class="pane-card-header">
+          <div class="pane-title-group">
+            <span class="icon-bubble">🔍</span>
+            <div>
+              <h2 class="pane-title">Neuro-Symbolic Synthesis &amp; Schema Diff Inspector</h2>
+              <p class="pane-sub">Side-by-side verification: Broken Payload → Synthesized Python AST Rule → Clean BigQuery Schema</p>
+            </div>
+          </div>
+          <div class="header-status-pills" style="display: flex; gap: 6px;">
+            <span id="chaosDriftBadge" class="badge-tag">Drift: Renamed Keys</span>
+            <span id="chaosVerifyBadge" class="badge-pill pill-emerald">100% Passed (184.2ms)</span>
+          </div>
+        </div>
+
+        <!-- Side-by-Side Diff Cards Container -->
+        <div class="diff-viewer-grid" id="chaosResultViewer">
+          <!-- Diff Column 1: Broken Payload -->
+          <div class="diff-card diff-card-broken">
+            <div class="diff-card-header">
+              <span class="diff-tag tag-rose">❌ 1. Incoming Broken Payload</span>
+              <button class="btn-copy-code" data-target="codeIncomingDrift" title="Copy Raw Payload">Copy</button>
+            </div>
+            <pre class="diff-code-box"><code id="codeIncomingDrift">{
+  "HEADER": "SAP_DOC_MUTATED_8910",
+  "client_uuid": "CLIENT_9941_US",
+  "TX_DATE": 1789218000,
+  "full_amount": {
+    "currency": "USD",
+    "value_cents": 105800
+  },
+  "LINE_ITEMS": "SKU-PRO-4410:2:45.00,SKU-HUB-8821:1:15.00",
+  "DOC_STATUS": "POSTED"
+}</code></pre>
+          </div>
+
+          <!-- Diff Column 2: Synthesized AST / Rule -->
+          <div class="diff-card diff-card-synthesized">
+            <div class="diff-card-header">
+              <span class="diff-tag tag-amber">⚡ 2. Synthesized Python AST Transformation</span>
+              <button class="btn-copy-code" data-target="codeSynthesizedAst" title="Copy Synthesized Code">Copy</button>
+            </div>
+            <pre class="diff-code-box"><code id="codeSynthesizedAst">def transform_mutated_order(row: dict) -&gt; dict:
+    """Auto-synthesized rule executed in gVisor sandbox."""
+    client_id = row.get("client_uuid") or row.get("customer_id")
+    amt_obj = row.get("full_amount")
+    if isinstance(amt_obj, dict):
+        total_usd = float(amt_obj.get("value_cents", 0)) / 100.0
+    else:
+        total_usd = float(amt_obj or 0.0)
+    return {
+        "order_id": row.get("HEADER"),
+        "customer_id": client_id,
+        "total_amount_usd": total_usd,
+        "status": "NORMALIZED"
+    }</code></pre>
+          </div>
+
+          <!-- Diff Column 3: Resulting BigQuery Row & Pandera Check -->
+          <div class="diff-card diff-card-clean">
+            <div class="diff-card-header">
+              <span class="diff-tag tag-emerald">✅ 3. Clean BigQuery Row &amp; Pandera Contract</span>
+              <button class="btn-copy-code" data-target="codeCleanRow" title="Copy Verified Result">Copy</button>
+            </div>
+            <pre class="diff-code-box"><code id="codeCleanRow">{
+  "order_id": "ORD-88104",
+  "customer_id": "MST_CUST_10424",
+  "order_date": "2026-09-18",
+  "total_amount_usd": 1058.00,
+  "items_count": 3,
+  "status": "BALANCED",
+  "pandera_verification": "VALID (0 errors, 100% compliant)"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Raw Textareas for Script Compatibility -->
+    <div style="display:none;">
+      <textarea id="txtRawInput"></textarea>
+      <textarea id="txtTargetDDL"></textarea>
+      <div id="statusIndicator"></div>
+      <div id="uploadStatusText"></div>
+      <div id="sftpStatusMsg"></div>
+      <div id="gcsStatusMsg"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 2: INGESTION OBSERVABILITY & DAG
+       ========================================================================= -->
+  <div id="viewObservability" class="view-section">
+    <!-- Observability Header -->
+    <div class="obs-header-bar">
+      <div>
+        <h2 class="obs-title">4-Swimlane Physical Ingestion DAG Topology</h2>
+        <p class="obs-sub">End-to-end telemetry across RAW streaming, BRONZE quarantine, SILVER gVisor healing, and GOLD BigQuery marts</p>
+      </div>
+      <div class="obs-header-pills" style="display: flex; gap: 8px;">
+        <span class="badge-pill gc-pill">Freshness: 14s ago · SLA MET</span>
+        <span class="badge-pill pill-emerald">DQS: 100.0% Grade A+</span>
+      </div>
+    </div>
+
+    <!-- 4-Swimlane Physical DAG -->
+    <section class="dag-swimlanes-container">
+      <!-- Swimlane 1: RAW INGESTION -->
+      <div class="dag-swimlane">
+        <div class="swimlane-header">
+          <span class="swimlane-title">1. RAW Ingestion &amp; Buffer</span>
+          <span class="badge-tag">Connectors (3)</span>
+        </div>
+        <div class="dag-nodes-list">
+          <div class="dag-node node-raw">
+            <div class="node-header">
+              <span class="node-type">STRIPE SETTLEMENT API</span>
+              <span class="row-badge">4 ROWS</span>
+            </div>
+            <div class="node-title">stripe_events_stream</div>
+            <div class="node-telemetry">
+              <span>Throughput: <strong>21.4 eps</strong></span>
+              <span>Circuit Breaker: <strong class="text-emerald">CLOSED</strong></span>
+            </div>
+          </div>
+
+          <div class="dag-node node-raw">
+            <div class="node-header">
+              <span class="node-type">SAP ERP GCS DROPS</span>
+              <span class="row-badge">4 ROWS</span>
+            </div>
+            <div class="node-title">sap_order_parquets</div>
+            <div class="node-telemetry">
+              <span>Format: <strong>Nested JSON / Parquet</strong></span>
+              <span>Ingestion Buffer: <strong class="text-emerald">Healthy</strong></span>
+            </div>
+          </div>
+
+          <div class="dag-node node-raw">
+            <div class="node-header">
+              <span class="node-type">CRM SUPPORT DESK</span>
+              <span class="row-badge">4 ROWS</span>
+            </div>
+            <div class="node-title">zendesk_ticket_feed</div>
+            <div class="node-telemetry">
+              <span>SLA Breaches: <strong class="text-amber">1 Detected</strong></span>
+              <span>CSAT Trend: <strong>4.25 / 5.0</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swimlane 2: BRONZE ISOLATION -->
+      <div class="dag-swimlane">
+        <div class="swimlane-header">
+          <span class="swimlane-title">2. BRONZE Isolation &amp; DLQ</span>
+          <span class="badge-tag">Zero Data Loss</span>
+        </div>
+        <div class="dag-nodes-list">
+          <div class="dag-node node-bronze">
+            <div class="node-header">
+              <span class="node-type">DEAD-LETTER TOPIC</span>
+              <span class="row-badge">0 QUARANTINED</span>
+            </div>
+            <div class="node-title">dlq_poison_pill_quarantine</div>
+            <div class="node-telemetry">
+              <span>Backoff: <strong>5-step Exponential</strong></span>
+              <span>Routing Status: <strong class="text-emerald">ALL CLEAR</strong></span>
+            </div>
+          </div>
+          <div class="dag-node node-bronze">
+            <div class="node-header">
+              <span class="node-type">PAYLOAD VAULT</span>
+              <span class="row-badge">IMMUTABLE</span>
+            </div>
+            <div class="node-title">raw_payload_custody</div>
+            <div class="node-telemetry">
+              <span>Retention: <strong>90 Days WORM</strong></span>
+              <span>Integrity: <strong class="text-emerald">SHA-256 Verified</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swimlane 3: SILVER CLEANSING -->
+      <div class="dag-swimlane">
+        <div class="swimlane-header">
+          <span class="swimlane-title">3. SILVER Cleansing &amp; Synthesis</span>
+          <span class="badge-tag">gVisor Sandbox</span>
+        </div>
+        <div class="dag-nodes-list">
+          <div class="dag-node node-silver">
+            <div class="node-header">
+              <span class="node-type">NEURO-SYMBOLIC ENGINE</span>
+              <span class="row-badge">SUB-200MS</span>
+            </div>
+            <div class="node-title">gemini_inductive_repair</div>
+            <div class="node-telemetry">
+              <span>Healing Latency: <strong class="text-emerald">184.2 ms</strong></span>
+              <span>Invariants: <strong class="text-emerald">Pandera Checked</strong></span>
+            </div>
+          </div>
+          <div class="dag-node node-silver">
+            <div class="node-header">
+              <span class="node-type">ENTITY RESOLUTION</span>
+              <span class="row-badge">CONF: 0.98</span>
+            </div>
+            <div class="node-title">customer_identity_mastering</div>
+            <div class="node-telemetry">
+              <span>Deterministic Matches: <strong>100%</strong></span>
+              <span>Disambiguation: <strong class="text-emerald">Active</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swimlane 4: GOLD FINAL MART -->
+      <div class="dag-swimlane">
+        <div class="swimlane-header">
+          <span class="swimlane-title">4. GOLD Final Mart (BigQuery)</span>
+          <span class="badge-tag">gold_analytics</span>
+        </div>
+        <div class="dag-nodes-list">
+          <div class="dag-node node-gold">
+            <div class="node-header">
+              <span class="node-type">BIGQUERY RECONCILED FACT</span>
+              <span class="row-badge">4 ROWS</span>
+            </div>
+            <div class="node-title">fact_reconciled_orders</div>
+            <div class="node-telemetry">
+              <span>Ledger: <strong class="text-emerald">BALANCED ($0 diff)</strong></span>
+              <span>Gross: <strong>$1,058.00</strong></span>
+            </div>
+          </div>
+          <div class="dag-node node-gold">
+            <div class="node-header">
+              <span class="node-type">GOLDEN CUSTOMER MASTER</span>
+              <span class="row-badge">4 ROWS</span>
+            </div>
+            <div class="node-title">dim_customers_master</div>
+            <div class="node-telemetry">
+              <span>Mastered Entities: <strong>4</strong></span>
+              <span>CSAT Average: <strong>4.25 / 5.0</strong></span>
+            </div>
+          </div>
+          <div class="dag-node node-gold">
+            <div class="node-header">
+              <span class="node-type">NORMALIZED FACT</span>
+              <span class="row-badge">3 ROWS</span>
+            </div>
+            <div class="node-title">fact_orders</div>
+            <div class="node-telemetry">
+              <span>Polymorphic SAP: <strong class="text-emerald">Normalized</strong></span>
+              <span>Dataset: <strong>gold_analytics</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lower Observability Grid: DQS Matrix & DLQ Workbench -->
+    <div class="obs-lower-grid">
+      <!-- DQS Scorecard Breakdown -->
+      <div class="dqs-matrix-card">
+        <div class="pane-card-header">
+          <div class="pane-title-group">
+            <span class="icon-bubble">📊</span>
+            <div>
+              <h3 class="pane-title">Decoupled Data Quality (DQS) Matrix</h3>
+              <p class="pane-sub">Formula: DQS = 0.30·C + 0.30·V + 0.20·U + 0.20·Inc</p>
+            </div>
+          </div>
+          <span class="badge-pill pill-emerald">100.0% Grade A+</span>
+        </div>
+        <div class="dqs-formula-box">
+          <div class="formula-math">DQS = 0.30·Completeness + 0.30·Validity + 0.20·Uniqueness + 0.20·Resilience = 100.0%</div>
+          <div class="dqs-meters-list">
+            <div class="dqs-meter-item">
+              <div class="meter-info">
+                <span>Completeness (Non-null conformance) [0.30]</span>
+                <strong>100.0%</strong>
+              </div>
+              <div class="progress-bar"><div class="progress-fill fill-emerald" style="width: 100%;"></div></div>
+            </div>
+            <div class="dqs-meter-item">
+              <div class="meter-info">
+                <span>Validity (Pandera range &amp; type contracts) [0.30]</span>
+                <strong>100.0%</strong>
+              </div>
+              <div class="progress-bar"><div class="progress-fill fill-emerald" style="width: 100%;"></div></div>
+            </div>
+            <div class="dqs-meter-item">
+              <div class="meter-info">
+                <span>Uniqueness (Primary key deduplication) [0.20]</span>
+                <strong>100.0%</strong>
+              </div>
+              <div class="progress-bar"><div class="progress-fill fill-emerald" style="width: 100%;"></div></div>
+            </div>
+            <div class="dqs-meter-item">
+              <div class="meter-info">
+                <span>Incident Resilience (0 active corruptions) [0.20]</span>
+                <strong>100.0%</strong>
+              </div>
+              <div class="progress-bar"><div class="progress-fill fill-emerald" style="width: 100%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DLQ Workbench with Tactile Press-and-Hold Button -->
+      <div class="dlq-workbench-card">
+        <div class="pane-card-header">
+          <div class="pane-title-group">
+            <span class="icon-bubble">☣️</span>
+            <div>
+              <h3 class="pane-title">Dead-Letter Queue (DLQ) &amp; Poison-Pill Quarantine</h3>
+              <p class="pane-sub">Exponential backoff routing with tactile hold-to-approve redrive guard</p>
+            </div>
+          </div>
+          <span class="badge-pill pill-emerald" id="dlqStatusPill">0 Quarantined (All Clear)</span>
+        </div>
+        <div class="dlq-body">
+          <div class="dlq-policy-pill">
+            Policy: <code>(ACTION: QUARANTINE_POISON_PILL, EXPONENTIAL_BACKOFF: 5_STEPS)</code>
+          </div>
+          <div class="dlq-custody-box">
+            <div class="custody-header">Active Quarantine Custody Envelope</div>
+            <div id="dlqCustodyContainer">
+              <p class="custody-text">No poison-pill payloads currently in DLQ topic. Any deserialization or SchemaError rows will route directly here with zero data loss.</p>
+            </div>
+          </div>
+          <div class="dlq-actions-bar" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <button id="btnAutoReplayDlq" class="btn-drawer-action">
+              ⚡ Auto-Diagnose &amp; Replay (ADK Agent)
+            </button>
+            <button id="btnRedriveDlq" class="btn-hold-action">
+              <span class="btn-hold-fill" id="holdFillTrack"></span>
+              <span class="btn-hold-text">🛡️ Press &amp; Hold to Approve Rule &amp; Redrive (1.2s)</span>
+            </button>
+          </div>
+          <span class="dlq-safety-note">Tactile safety guard prevents accidental production replays</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 3: GEMINI E-COMMERCE COPILOT (3-Pane Split Canvas)
+       ========================================================================= -->
+  <div id="viewCopilot" class="view-section">
+    <div class="copilot-3pane-container">
+      <!-- PANE 1 (LEFT 20%): Data Catalog Navigator -->
+      <aside class="copilot-left-pane" id="paneDomainNav">
+        <div class="pane-header">
+          <div class="pane-title">
+            <span class="icon">📁</span> Data Catalog
+          </div>
+          <span class="badge-tag">BigQuery</span>
+        </div>
+        <div class="catalog-tree-body" style="padding: 0.85rem; overflow-y: auto;">
+          <div class="tree-section" style="margin-bottom: 0.85rem;">
+            <div class="tree-heading" style="font-size: 0.68rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px;">MEDALLION LAYERS</div>
+            <div class="tree-item" style="font-size: 0.74rem; padding: 3px 0; color: #34d399;">🏆 Gold Curated Mart (3)</div>
+            <div class="tree-item" style="font-size: 0.74rem; padding: 3px 0; color: #818cf8;">🥈 Silver Cleaned (2)</div>
+            <div class="tree-item" style="font-size: 0.74rem; padding: 3px 0; color: #fbbf24;">🥉 Bronze Raw Buffer (1)</div>
+          </div>
+
+          <div class="tree-section" style="margin-bottom: 0.85rem;">
+            <div class="tree-heading" style="font-size: 0.68rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px;">BIGQUERY TABLES</div>
+            <div class="tree-sub-item" data-table="fact_reconciled_orders" style="font-size: 0.72rem; padding: 3px 0; color: #cbd5e1; cursor: pointer;">
+              🔹 fact_reconciled_orders (4)
+            </div>
+            <div class="tree-sub-item" data-table="dim_customers_master" style="font-size: 0.72rem; padding: 3px 0; color: #cbd5e1; cursor: pointer;">
+              🔹 dim_customers_master (4)
+            </div>
+            <div class="tree-sub-item" data-table="fact_orders" style="font-size: 0.72rem; padding: 3px 0; color: #cbd5e1; cursor: pointer;">
+              🔹 fact_orders (3)
+            </div>
+          </div>
+
+          <div class="tree-section">
+            <div class="tree-heading" style="font-size: 0.68rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px;">EXTERNAL SOURCES</div>
+            <div class="tree-sub-item" style="font-size: 0.72rem; padding: 3px 0; color: var(--text-muted);">🔌 Stripe Settlement (API)</div>
+            <div class="tree-sub-item" style="font-size: 0.72rem; padding: 3px 0; color: var(--text-muted);">🔌 SAP ERP Orders (GCS)</div>
+            <div class="tree-sub-item" style="font-size: 0.72rem; padding: 3px 0; color: var(--text-muted);">🔌 CRM Zendesk Webhook</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Draggable Splitter 1: Left & Center -->
+      <div class="pane-resizer pane-resizer-left" id="copilotResizerLeft" title="Drag to resize Data Catalog">
+        <div class="resizer-handle-grip"></div>
+      </div>
+
+      <!-- PANE 2 (CENTER 55%): Interactive Canvas -->
+      <section class="copilot-center-pane" id="paneCenterCanvas">
+        <!-- Proactive Anomaly Triage Stream Banner -->
+        <div class="proactive-triage-strip" id="proactiveTriageStream">
+          <div class="triage-alert-banner alert-warning">
+            <div class="alert-badge">⚠️ [SYSTEM] SLA BREACH</div>
+            <div class="alert-content">
+              <strong>Delivery SLA Breach Detected:</strong> Order ORD-88103 (Chen Logistics SG) breached promised delivery SLA by 48h ($137.50 gross).
+            </div>
+            <button class="btn-triage-cta" id="btnInvestigateSLA">Investigate in Copilot ➔</button>
+          </div>
+        </div>
+
+        <!-- E-Commerce KPI Hero Summary Cards -->
+        <div class="ecomm-kpi-row">
+          <div class="ecomm-stat-card">
+            <div class="stat-title">Total Gross Revenue</div>
+            <div class="stat-value" id="kpiGrossRev">$1,058.00</div>
+            <div class="stat-sub text-emerald">↑ 100% Reconciled with Stripe</div>
+          </div>
+
+          <div class="ecomm-stat-card">
+            <div class="stat-title">Net Realized Revenue</div>
+            <div class="stat-value text-emerald" id="kpiNetRev">$1,026.11</div>
+            <div class="stat-sub">Stripe fees deducted: $31.89</div>
+          </div>
+
+          <div class="ecomm-stat-card">
+            <div class="stat-title">Revenue Realization Ratio</div>
+            <div class="stat-value text-accent" id="kpiRealization">97.0%</div>
+            <div class="stat-sub">Average transaction fee: 3.01%</div>
+          </div>
+
+          <div class="ecomm-stat-card">
+            <div class="stat-title">Mastered Customers CSAT</div>
+            <div class="stat-value" id="kpiCsat">4.25 / 5.0</div>
+            <div class="stat-sub text-amber">1 SLA Breach (Chen Logistics)</div>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Canvas (Vega-Lite Interactive Chart) -->
+        <div class="canvas-chart-card">
+          <div class="pane-card-header" style="margin-bottom: 0.5rem; border-bottom: none; padding-bottom: 0;">
+            <div class="pane-title-group">
+              <span class="icon-bubble">📈</span>
+              <h3 class="pane-title" id="chartCanvasTitle">Gross vs. Net Realized Revenue by Order (BigQuery Gold)</h3>
+            </div>
+            <div class="chart-actions">
+              <button class="btn-chip active" id="btnChartRev">Revenue Breakdown</button>
+              <button class="btn-chip" id="btnChartSla">Fulfillment SLA</button>
+              <button class="btn-chip" id="btnChartCsat">Customer CSAT</button>
+            </div>
+          </div>
+          <!-- Vega-Lite target container -->
+          <div class="vega-embed-wrapper" id="vegaChartContainer">
+            <div class="chart-loading-spinner" style="font-size: 0.8rem; color: #94a3b8;">Loading Vega-Lite visualization from BigQuery...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Draggable Splitter 2: Center & Right -->
+      <div class="pane-resizer pane-resizer-right" id="copilotResizerRight" title="Drag to resize Copilot Agent Window (Left / Right)">
+        <div class="resizer-handle-grip"></div>
+      </div>
+
+      <!-- PANE 3 (RIGHT 25%): Gemini E-Commerce Copilot Drawer -->
+      <aside class="copilot-right-pane" id="paneAgentDrawer">
+        <div class="pane-header">
+          <div class="pane-title">
+            <span>🤖</span> Gemini E-Commerce Copilot
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button class="btn-icon-sm" id="btnExpandAgentPane" title="Toggle Wide Agent View" style="background:transparent; border:none; color:#a1a1aa; font-size:1rem; cursor:pointer;">⤢</button>
+            <span class="badge-gemini">GEMINI 1.5 PRO</span>
+          </div>
+        </div>
+
+        <!-- Trust & Provenance Strip -->
+        <div class="trust-provenance-strip">
+          <div class="trust-pill text-emerald" id="copilotTrustBadge">
+            ✓ Verified by BigQuery • Fresh: 14s • DQS: 100%
+          </div>
+          <div class="lineage-breadcrumb">
+            Stripe / SAP ➔ Pandera ➔ <code>gold_analytics.fact_reconciled_orders</code>
+          </div>
+        </div>
+
+        <!-- Conversational Tri-Modal Output Stream -->
+        <div class="copilot-chat-stream" id="copilotChatStream">
+          <!-- Initial Agent Welcome Message -->
+          <div class="chat-msg chat-msg-agent">
+            <div class="chat-author-tag"><span>Gemini 1.5 Pro</span> <span>🤖</span></div>
+            <div class="chat-conversational-body">
+              Hello! I am SchemaForge Copilot, your e-commerce domain intelligence assistant. I am connected directly to our Google Cloud BigQuery gold warehouse (<code>gold_analytics</code>). Ask me anything about financial reconciliation, customer CSAT, carrier delivery SLAs, or gateway take-rates!
+            </div>
+            <div class="trimodal-response-card">
+              <!-- Layer 1: Executive Narrative & Guided Exploration -->
+              <div class="trimodal-layer-narrative">
+                <div class="narrative-headline" id="copilotHeadline">
+                  Total Gross Revenue: $1,058.00 | Net Realized Revenue: $1,026.11 (97.0% realization)
+                </div>
+                <div class="narrative-drivers">
+                  <div class="driver-item">🔹 <strong>Amex ORD-88104</strong>: Largest transaction volume ($525.00 gross, $509.47 net).</div>
+                  <div class="driver-item">🔹 <strong>Visa Orders</strong>: Highest net realization (96.9%).</div>
+                  <div class="driver-item">🔹 <strong>Identity Resolution</strong>: 98.0% confidence golden records in BigQuery.</div>
+                </div>
+
+                <!-- Clickable Guided Exploration Pills -->
+                <div class="guided-pills-row" id="guidedPillsContainer">
+                  <button class="guided-pill" data-prompt="Breakdown by Payment Brand (Amex vs Visa)">💳 Brand Breakdown</button>
+                  <button class="guided-pill" data-prompt="Audit Customer CSAT by Revenue Tier">⭐ Customer CSAT</button>
+                  <button class="guided-pill" data-prompt="Inspect Delivery SLA Breaches">⚠️ Delivery SLA Breaches</button>
+                </div>
+              </div>
+
+              <!-- Layer 3: Progressive Disclosure SQL & Pandera Contract -->
+              <div class="trimodal-layer-disclosure">
+                <button class="btn-disclosure" id="btnToggleSqlDisclosure">
+                  <span>&lt;/&gt; View Verified BigQuery SQL &amp; Pandera Contracts</span>
+                  <span class="disclosure-arrow">▼</span>
+                </button>
+                <div class="disclosure-code-box" id="sqlDisclosureBox" style="display:none;">
+                  <div style="font-weight:700; margin-bottom:4px; color:#38bdf8;">Executed BigQuery SQL:</div>
+                  <pre><code id="copilotSqlCode">SELECT 
+  order_id,
+  master_customer_id,
+  thelook_gross_amount_usd,
+  stripe_charge_amount_usd,
+  stripe_fee_amount_usd,
+  net_realized_revenue_usd,
+  payment_brand,
+  reconciliation_status
+FROM `project-29e65474-32d7-45e0-803.gold_analytics.fact_reconciled_orders`
+ORDER BY order_date ASC;</code></pre>
+                  <div style="font-weight:700; margin:6px 0 4px 0; color:#10b981;">Pandera Verification Assertion:</div>
+                  <pre><code id="copilotPanderaCode">class ReconciledOrderContract(pa.DataFrameModel):
+    order_id: str = pa.Field(unique=True, nullable=False)
+    net_realized_revenue_usd: float = pa.Field(ge=0.0)
+    reconciliation_status: str = pa.Field(isin=['BALANCED'])</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Input Bar -->
+        <div class="copilot-input-bar">
+          <input type="text" id="copilotQueryInput" placeholder="Ask Gemini about revenue, customer CSAT, SLA breaches..." />
+          <button id="btnSendCopilotQuery" class="btn-send-copilot">
+            <span>Ask Gemini</span>
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       ZONE 4: BOTTOM COLLAPSIBLE LIVE EXECUTION & AUDIT DRAWER
+       ========================================================================= -->
+  <section class="bottom-audit-drawer" id="bottomAuditDrawer">
+    <div class="drawer-header-bar" id="drawerHeaderToggle">
+      <div class="drawer-left">
+        <span class="drawer-icon">📜</span>
+        <span class="drawer-title">Cloud Run Execution Stream &amp; BigQuery Audit Log</span>
+        <span class="drawer-badge" id="drawerTotalEventsBadge">52,500 total events</span>
+        <span class="drawer-pill-live"><span class="pulse-dot"></span> Streaming</span>
+      </div>
+      <div class="drawer-center">
+        <span class="drawer-quick-stat">Last Verified Job: <code id="quickJobId">job_bq_89124a</code> · 42ms · BALANCED</span>
+      </div>
+      <div class="drawer-right">
+        <button id="btnBottomAutoReplayDlq" class="btn-drawer-action" title="Autonomous ADK Agent Redrive">
+          ⚡ Replay Quarantined DLQ Records
+        </button>
+        <button id="btnToggleDrawer" class="btn-drawer-toggle">
+          <span id="drawerToggleIcon">▲</span> <span id="drawerToggleText">Expand Drawer</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer-expanded-body" id="drawerExpandedBody" style="display: none;">
+      <div class="drawer-table-toolbar">
+        <div class="toolbar-title">Physical Warehouse Audit Trail (Dataset: <code>gold_analytics</code>)</div>
+        <div class="toolbar-search">
+          <input type="text" id="executionLogFilter" placeholder="Filter by Job ID, Pipeline, or Status..." />
+        </div>
+      </div>
+      <div class="table-responsive-wrapper">
+        <table class="execution-table">
+          <thead>
+            <tr>
+              <th>Job ID</th>
+              <th>BigQuery Job Hash</th>
+              <th>Pipeline / Target</th>
+              <th>Timestamp (UTC)</th>
+              <th>Duration</th>
+              <th>Rows</th>
+              <th>Status</th>
+              <th>Self-Heal</th>
+            </tr>
+          </thead>
+          <tbody id="executionLogsTableBody">
+            <!-- Populated dynamically by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ZONE 5: GLOBAL COMMAND PALETTE DIALOG (Cmd+K / Ctrl+K)
+       ========================================================================= -->
+  <div id="cmdKModalBackdrop" class="cmdk-backdrop" style="display: none;">
+    <div class="cmdk-dialog" role="dialog" aria-modal="true">
+      <div class="cmdk-input-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cmdk-search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmdKInput" class="cmdk-input" placeholder="Type a command or search actions..." autocomplete="off" />
+        <kbd class="cmdk-esc-kbd" id="btnCmdKClose">ESC</kbd>
+      </div>
+      <div class="cmdk-list" id="cmdKList">
+        <div class="cmdk-group-heading">⚡ Chaos Drills &amp; Ingestion Mutations</div>
+        <div class="cmdk-item" data-action="run_chaos" data-arg="scenario_a">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">⚡</span> Run Scenario A: Breaking Schema Mutation</div>
+          <kbd class="cmdk-item-kbd">Scenario A</kbd>
+        </div>
+        <div class="cmdk-item" data-action="run_chaos" data-arg="scenario_b">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">🧩</span> Run Scenario B: Dirty Unstructured Input</div>
+          <kbd class="cmdk-item-kbd">Scenario B</kbd>
+        </div>
+        <div class="cmdk-item" data-action="run_chaos" data-arg="scenario_c">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">🌊</span> Run Scenario C: Multi-Tenant Polymorphism</div>
+          <kbd class="cmdk-item-kbd">Scenario C</kbd>
+        </div>
+        <div class="cmdk-item" data-action="run_chaos" data-arg="scenario_d">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">🔒</span> Run Scenario D: Enterprise Cost Guardrails</div>
+          <kbd class="cmdk-item-kbd">Scenario D</kbd>
+        </div>
+
+        <div class="cmdk-group-heading">🛡️ Observability &amp; Physical Warehouses</div>
+        <div class="cmdk-item" data-action="navigate" data-arg="viewObservability">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">🛡️</span> View 4-Swimlane Ingestion DAG &amp; DQS Matrix</div>
+          <kbd class="cmdk-item-kbd">Nav</kbd>
+        </div>
+        <div class="cmdk-item" data-action="open_drawer">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">📜</span> Expand Live BigQuery Execution Logs</div>
+          <kbd class="cmdk-item-kbd">Logs</kbd>
+        </div>
+        <div class="cmdk-item" data-action="replay_dlq">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">☣️</span> Replay Quarantined DLQ Records (ADK Agent)</div>
+          <kbd class="cmdk-item-kbd">Redrive</kbd>
+        </div>
+
+        <div class="cmdk-group-heading">🤖 Gemini E-Commerce Copilot</div>
+        <div class="cmdk-item" data-action="copilot_query" data-arg="Breakdown by Payment Brand (Amex vs Visa)">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">💳</span> Copilot: Payment Brand Fee Variance (Amex vs Visa)</div>
+          <kbd class="cmdk-item-kbd">Ask</kbd>
+        </div>
+        <div class="cmdk-item" data-action="copilot_query" data-arg="Inspect Delivery SLA Breaches">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">⚠️</span> Copilot: Inspect Delivery SLA Breaches (Chen Logistics)</div>
+          <kbd class="cmdk-item-kbd">Ask</kbd>
+        </div>
+        <div class="cmdk-item" data-action="copilot_query" data-arg="Audit Customer CSAT by Revenue Tier">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">⭐</span> Copilot: Customer CSAT Ratings Analysis</div>
+          <kbd class="cmdk-item-kbd">Ask</kbd>
+        </div>
+
+        <div class="cmdk-group-heading">🏢 Enterprise Workspaces</div>
+        <div class="cmdk-item" data-action="switch_tenant" data-arg="t_nexus_fintech">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">🏢</span> Switch to: Nexus-FinTech-Core (FinTech)</div>
+          <kbd class="cmdk-item-kbd">Active</kbd>
+        </div>
+        <div class="cmdk-item" data-action="switch_tenant" data-arg="t_acme_logistics">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">🏢</span> Switch to: Acme-Logistics-Prod (Logistics)</div>
+          <kbd class="cmdk-item-kbd">Tenant</kbd>
+        </div>
+        <div class="cmdk-item" data-action="switch_tenant" data-arg="t_bharat_agri">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">🏢</span> Switch to: BharatAgri-Core (AgriTech)</div>
+          <kbd class="cmdk-item-kbd">Tenant</kbd>
+        </div>
+        <div class="cmdk-item" data-action="switch_tenant" data-arg="t_thelook_ecom">
+          <div class="cmdk-item-left"><span class="cmdk-item-icon">🏢</span> Switch to: TheLook-Omnichannel (E-Commerce)</div>
+          <kbd class="cmdk-item-kbd">Tenant</kbd>
+        </div>
+      </div>
+      <div class="cmdk-footer">
+        <span>Navigate with <kbd>↑</kbd> <kbd>↓</kbd></span>
+        <span>Select with <kbd>↵</kbd></span>
+        <span>Exit with <kbd>ESC</kbd></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

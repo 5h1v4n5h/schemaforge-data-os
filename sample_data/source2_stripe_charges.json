@@ -1,0 +1,82 @@
+[
+  {
+    "charge_id": "ch_3N8x7701",
+    "order_reference": "ORD-88101",
+    "customer": "cus_99120",
+    "billing_details": {
+      "name": "John Doe",
+      "email": "johndoe@acmecorp.com",
+      "address": { "city": "San Francisco", "country": "US", "postal_code": "94105", "state": "CA" }
+    },
+    "amount_cents": 17550,
+    "fee_cents": 539,
+    "currency": "usd",
+    "status": "succeeded",
+    "payment_method_details": {
+      "type": "card",
+      "card": { "brand": "visa", "funding": "credit", "last4": "4242", "country": "US" }
+    },
+    "captured": true,
+    "created": 1789223400
+  },
+  {
+    "charge_id": "ch_3N8x7702",
+    "order_reference": "ORD-88102",
+    "customer": "cus_99121",
+    "billing_details": {
+      "name": "Sarah Connor",
+      "email": "finance@cyberdyne.io",
+      "address": { "city": "Austin", "country": "US", "postal_code": "78701", "state": "TX" }
+    },
+    "amount_cents": 22000,
+    "fee_cents": 668,
+    "currency": "usd",
+    "status": "succeeded",
+    "payment_method_details": {
+      "type": "card",
+      "card": { "brand": "mastercard", "funding": "credit", "last4": "5555", "country": "US" }
+    },
+    "captured": true,
+    "created": 1789290900
+  },
+  {
+    "charge_id": "ch_3N8x7703",
+    "order_reference": "ORD-88103",
+    "customer": "cus_99122",
+    "billing_details": {
+      "name": "Alex Chen",
+      "email": "alex@chenlogistics.com.sg",
+      "address": { "city": "Singapore", "country": "SG", "postal_code": "018989", "state": "SG" }
+    },
+    "amount_cents": 13750,
+    "fee_cents": 429,
+    "currency": "usd",
+    "status": "succeeded",
+    "payment_method_details": {
+      "type": "card",
+      "card": { "brand": "visa", "funding": "debit", "last4": "1111", "country": "SG" }
+    },
+    "captured": true,
+    "created": 1789386300
+  },
+  {
+    "charge_id": "ch_3N8x7704",
+    "order_reference": "ORD-88104",
+    "customer": "cus_99123",
+    "billing_details": {
+      "name": "Elena Rostova",
+      "email": "accounts@novacorp.de",
+      "address": { "city": "Munich", "country": "DE", "postal_code": "80331", "state": "BY" }
+    },
+    "amount_cents": 52500,
+    "fee_cents": 1553,
+    "currency": "usd",
+    "status": "succeeded",
+    "payment_method_details": {
+      "type": "card",
+      "card": { "brand": "amex", "funding": "credit", "last4": "0005", "country": "DE" }
+    },
+    "captured": true,
+    "created": 1789489200
+  }
+]
