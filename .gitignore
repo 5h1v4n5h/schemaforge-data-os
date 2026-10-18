@@ -63,3 +63,11 @@ Thumbs.db
 logs/
 scratch/
 .system_generated/
+
+# Video Build Scratch Files
+scripts/video_temp/
+scripts/video_assets/
+scripts/audio_scenes/
+scripts/*.wav
+scripts/*.mp3
+/schemaforge_showcase_video.mp4

@@ -5,6 +5,7 @@
 </p>
 
 > **Core Focus:** The ARC-AGI Autonomous Neuro-Symbolic Agent for Ingesting Messy, Polymorphic Files  
+> **🎬 AI Showcase Video (1:35):** [Watch Broadcast Walkthrough (MP4)](assets/schemaforge_showcase_video.mp4) *(Narrated by Shivansh Sharma)*  
 > **Live Working Solution:** [https://schemaforge-app-605335322761.us-central1.run.app](https://schemaforge-app-605335322761.us-central1.run.app)  
 > **Target Warehouse:** Google Cloud BigQuery (`gold_analytics.fact_orders`)  
 > **Compute Platform:** Google Cloud Run (Container Sandbox with gVisor)  

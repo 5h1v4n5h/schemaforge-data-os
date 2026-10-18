@@ -40,14 +40,30 @@ Instead of relying on brittle manual regex or unverified LLM prompts, SchemaForg
 
 ---
 
+## 🎬 AI Video Pitch & Walkthrough (Narrated by Shivansh Sharma)
+
+> **Voice Narration:** Shivansh Sharma  
+> **Format:** 1080p Full HD (1920x1080) • H.264 / AAC Stereo • Duration: 1:35  
+> **Video File:** [`docs/assets/schemaforge_showcase_video.mp4`](docs/assets/schemaforge_showcase_video.mp4) *(also at root: [`schemaforge_showcase_video.mp4`](schemaforge_showcase_video.mp4))*
+
+A broadcast-grade video presentation covering the entire problem statement and solution architecture:
+- **Scene 1 (0:00 - 0:23): The $100B Problem:** Why traditional batch pipelines (Airflow, dbt) crash on dirty polymorphic enterprise files.
+- **Scene 2 (0:23 - 0:43): The ARC-AGI Ingestion Agent:** Neuro-symbolic Python AST synthesis using Google Gemini 1.5 Pro.
+- **Scene 3 (0:43 - 1:00): Formal Safety Sandbox & Invariants:** gVisor isolation, Pandera schema contracts, and financial balance conservation ($\sum \text{Gross} \equiv \sum \text{Billed}$).
+- **Scene 4 (1:00 - 1:16): Google Cloud Native Architecture:** Cloud Run compute, Pub/Sub buffer & DLQ, BigQuery Lakehouse, and Cloud Logging.
+- **Scene 5 (1:16 - 1:35): Live Solution Walkthrough:** Production sub-second self-healing (406.8ms), DLQ circuit breakers, and E-Commerce Copilot.
+
+---
+
 ## 📚 Competition & System Documentation
 
 | Document | Purpose |
 |---|---|
+| [**Showcase Video Walkthrough (.mp4)**](docs/assets/schemaforge_showcase_video.mp4) | **1080p AI Video:** 94-second broadcast pitch narrated by Shivansh Sharma covering problem statement & solution architecture. |
 | [**ARC-AGI File Ingestion Walkthrough**](docs/SHOWCASE_WALKTHROUGH.md) | **Core Walkthrough:** Step-by-step evaluation of the ARC-AGI agent ingesting dirty polymorphic files into BigQuery. |
 | [**System Architecture & Technical Manual**](docs/ARCHITECTURE_AND_SYSTEM_MANUAL.md) | Comprehensive engineering manual, GCP services matrix, and end-to-end data flow. |
 | [**Executive Pitch Deck (.pptx)**](docs/SchemaForge_DataOS_PitchDeck.pptx) | **Complete 10-slide PowerPoint Presentation (.pptx)** with 16:9 dark-mode slides and architecture embeds. |
-| [**Video Pitch & Demo Script**](docs/DEMO_VIDEO_SCRIPT.md) | Timecoded 5-minute video presentation script with exact narration and click paths. |
+| [**Video Pitch & Demo Script**](docs/DEMO_VIDEO_SCRIPT.md) | Timecoded video presentation script with exact narration and click paths. |
 | [**Public GitHub Setup Guide**](docs/GITHUB_SETUP_GUIDE.md) | Public repository guide with zero-credential verification guarantee. |
 | [**Standard Operating Procedures (SOP)**](docs/SOP_OPERATIONAL_RUNBOOK.md) | Operational runbooks for running chaos drills, handling DLQs, and deploying on Cloud Run. |
 
