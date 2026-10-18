@@ -69,7 +69,16 @@ The system continuously profiles ingestion streams, detects structural drift aga
 
 SchemaForge Data-OS is architected as a cloud-native distributed system deployed on Google Cloud Platform, leveraging managed serverless primitives for high concurrency, zero cold starts, and linear horizontal scalability.
 
-### 2.1 Complete Architectural Topology
+### 2.1 Visual System Architecture Diagram (Google Cloud Native Topology)
+
+<p align="center">
+  <img src="assets/gcp_system_architecture_diagram.jpg" alt="Google Cloud Native Architecture Diagram" width="100%" style="border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); border: 1px solid #26293b;" />
+</p>
+
+*Figure 2.1: Production Google Cloud Architecture Diagram showing centralized Cloud Run container engine, Google Cloud BigQuery gold warehouse, Google Cloud Pub/Sub event buffer with Dead-Letter Queue, Gemini AI neuro-symbolic reasoning, and Cloud Logging telemetry.*  
+👉 **[Open Vector SVG Blueprint with Official GCP Logos](assets/gcp_service_architecture_blueprint.svg)**
+
+### 2.2 Complete Architectural Topology
 ```
                                  [ UPSTREAM INGESTION SOURCES ]
            +-----------------------------+-----------------------------+

@@ -1,0 +1,363 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGrad" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#0f111a" />
+      <stop offset="60%" stop-color="#08090e" />
+      <stop offset="100%" stop-color="#040507" />
+    </radialGradient>
+
+    <!-- Glowing Lines and Filters -->
+    <filter id="cardGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+    <filter id="neonBlueGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="neonEmeraldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Component Gradient Fills -->
+    <linearGradient id="cloudRunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="bigQueryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="pubsubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#4338ca" />
+    </linearGradient>
+    <linearGradient id="geminiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea" />
+      <stop offset="50%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="loggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+    
+    <!-- Flow Connector Gradients -->
+    <linearGradient id="streamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .title-main { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 26px; fill: #ffffff; letter-spacing: -0.5px; }
+    .subtitle-main { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; fill: #94a3b8; }
+    .badge-label { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; fill: #38bdf8; letter-spacing: 0.5px; }
+    
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 16px; fill: #ffffff; }
+    .card-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #94a3b8; }
+    .card-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11.5px; fill: #cbd5e1; line-height: 1.4; }
+    .code-label { font-family: "JetBrains Mono", monospace; font-size: 10px; fill: #a5f3fc; }
+    
+    .flow-line { stroke: #38bdf8; stroke-width: 2.5; stroke-dasharray: 6,4; fill: none; opacity: 0.85; }
+    .flow-line-success { stroke: #10b981; stroke-width: 2.5; fill: none; opacity: 0.9; }
+    .flow-line-dlq { stroke: #f43f5e; stroke-width: 2.5; stroke-dasharray: 5,4; fill: none; opacity: 0.85; }
+    .pulse-dot { fill: #38bdf8; filter: url(#neonBlueGlow); }
+  </style>
+
+  <!-- Deep Canvas Background -->
+  <rect width="1600" height="900" fill="url(#bgGrad)" />
+
+  <!-- Grid Blueprint Pattern -->
+  <g opacity="0.05" stroke="#38bdf8" stroke-width="1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" />
+    </pattern>
+    <rect width="1600" height="900" fill="url(#grid)" />
+  </g>
+
+  <!-- =========================================================================
+       TOP GLOBAL HEADER BANNER
+       ========================================================================= -->
+  <g transform="translate(60, 40)">
+    <!-- GCP Badge -->
+    <rect x="0" y="0" width="160" height="26" rx="6" fill="rgba(56, 189, 248, 0.1)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1" />
+    <text x="80" y="17" text-anchor="middle" class="badge-label">GOOGLE CLOUD PLATFORM</text>
+
+    <text x="0" y="58" class="title-main">SchemaForge Data-OS: Production Cloud Architecture</text>
+    <text x="0" y="78" class="subtitle-main">Stateless Containerized Execution (Cloud Run) • Lakehouse Analytics (BigQuery) • Event Buffer &amp; DLQ (Pub/Sub) • Neuro-Symbolic Synthesis (Gemini 1.5)</text>
+    
+    <!-- Status Indicator Pills -->
+    <g transform="translate(1180, 15)">
+      <rect x="0" y="0" width="300" height="34" rx="8" fill="#13151f" stroke="#26293b" stroke-width="1.5" />
+      <circle cx="20" cy="17" r="4.5" fill="#10b981" filter="url(#neonEmeraldGlow)" />
+      <text x="34" y="21" font-family="sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">GCP Production Uptime: 99.98% Live</text>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       FLOW CONNECTIONS & WIRES (LAYER BEHIND CARDS)
+       ========================================================================= -->
+  <!-- Wire 1: Upstream Ingestion to Pub/Sub -->
+  <path d="M 240 280 L 320 280" class="flow-line" />
+  
+  <!-- Wire 2: Pub/Sub to Cloud Run -->
+  <path d="M 520 280 L 640 280" class="flow-line" />
+  
+  <!-- Wire 3: Cloud Run to Pub/Sub DLQ -->
+  <path d="M 640 330 L 520 450" class="flow-line-dlq" />
+  
+  <!-- Wire 4: Cloud Run to Gemini AI Engine -->
+  <path d="M 840 210 L 1020 210" class="flow-line" />
+  <path d="M 1020 250 L 840 250" class="flow-line-success" />
+  
+  <!-- Wire 5: Cloud Run to BigQuery Stream -->
+  <path d="M 840 340 L 1020 450" class="flow-line-success" />
+  
+  <!-- Wire 6: Gemini to BigQuery (Copilot SQL Verification) -->
+  <path d="M 1120 330 L 1120 400" class="flow-line" />
+  
+  <!-- Wire 7: Cloud Run to Cloud Logging -->
+  <path d="M 740 430 L 740 550" class="flow-line" />
+  
+  <!-- Wire 8: Client SPA to Cloud Run (HTTPS/WSS) -->
+  <path d="M 740 700 L 740 430" class="flow-line-success" />
+
+  <!-- =========================================================================
+       ZONE 1: UPSTREAM MULTI-SOURCE INGESTION (LEFT TIER)
+       ========================================================================= -->
+  <g transform="translate(60, 160)" filter="url(#cardGlow)">
+    <rect width="180" height="260" rx="14" fill="#13151f" stroke="#26293b" stroke-width="1.5" />
+    
+    <text x="20" y="32" class="card-title">Ingestion Sources</text>
+    <text x="20" y="48" class="card-sub">Multi-Tenant Operational Webhooks</text>
+    
+    <!-- Source 1: TheLook -->
+    <g transform="translate(16, 65)">
+      <rect width="148" height="48" rx="8" fill="#181a26" stroke="#2e334a" />
+      <circle cx="20" cy="24" r="8" fill="#3b82f6" />
+      <text x="36" y="22" font-family="sans-serif" font-weight="700" font-size="11" fill="#fff">TheLook E-Com</text>
+      <text x="36" y="36" class="code-label">Cart Gross ($1,058)</text>
+    </g>
+
+    <!-- Source 2: Stripe -->
+    <g transform="translate(16, 125)">
+      <rect width="148" height="48" rx="8" fill="#181a26" stroke="#2e334a" />
+      <circle cx="20" cy="24" r="8" fill="#6366f1" />
+      <text x="36" y="22" font-family="sans-serif" font-weight="700" font-size="11" fill="#fff">Stripe Gateway</text>
+      <text x="36" y="36" class="code-label">Billed ($1,058.00)</text>
+    </g>
+
+    <!-- Source 3: CRM -->
+    <g transform="translate(16, 185)">
+      <rect width="148" height="48" rx="8" fill="#181a26" stroke="#2e334a" />
+      <circle cx="20" cy="24" r="8" fill="#06b6d4" />
+      <text x="36" y="22" font-family="sans-serif" font-weight="700" font-size="11" fill="#fff">Zendesk CRM</text>
+      <text x="36" y="36" class="code-label">CSAT &amp; SLA Logs</text>
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       ZONE 2: GOOGLE CLOUD PUB/SUB (STREAMING BUFFER & DLQ)
+       ========================================================================= -->
+  <!-- 2A. Ingestion Buffer Topic -->
+  <g transform="translate(320, 180)" filter="url(#cardGlow)">
+    <rect width="200" height="150" rx="14" fill="#13151f" stroke="#4f46e5" stroke-width="1.8" />
+    
+    <!-- Official Pub/Sub SVG Icon -->
+    <g transform="translate(20, 20)">
+      <rect width="40" height="40" rx="8" fill="url(#pubsubGrad)" />
+      <!-- PubSub Logo Symbol -->
+      <path d="M 20 12 L 28 26 L 12 26 Z" fill="#ffffff" opacity="0.9" />
+      <circle cx="20" cy="20" r="3" fill="#38bdf8" />
+      <line x1="8" y1="20" x2="32" y2="20" stroke="#ffffff" stroke-width="2" />
+    </g>
+    
+    <text x="70" y="38" class="card-title">Cloud Pub/Sub</text>
+    <text x="70" y="52" class="code-label">Topic: raw-ingestion</text>
+
+    <text x="20" y="86" class="card-body">
+      <tspan x="20" dy="0">• At-least-once message delivery</tspan>
+      <tspan x="20" dy="16">• High-throughput event buffer</tspan>
+      <tspan x="20" dy="16">• Sub-second push subscription</tspan>
+    </text>
+  </g>
+
+  <!-- 2B. Dead-Letter Queue (DLQ) Quarantine -->
+  <g transform="translate(320, 390)" filter="url(#cardGlow)">
+    <rect width="200" height="130" rx="14" fill="#181016" stroke="#f43f5e" stroke-width="1.8" />
+    
+    <g transform="translate(18, 18)">
+      <rect width="36" height="36" rx="8" fill="#e11d48" />
+      <!-- Warning Skull / Shield -->
+      <circle cx="18" cy="18" r="8" fill="none" stroke="#fff" stroke-width="2" />
+      <line x1="18" y1="14" x2="18" y2="19" stroke="#fff" stroke-width="2" />
+      <circle cx="18" cy="23" r="1.5" fill="#fff" />
+    </g>
+
+    <text x="64" y="34" class="card-title" fill="#f43f5e">Pub/Sub DLQ</text>
+    <text x="64" y="48" class="code-label" fill="#fca5a5">Topic: quarantine-dlq</text>
+
+    <text x="18" y="76" class="card-body" fill="#fecdd3">
+      <tspan x="18" dy="0">• Poison-Pill Quarantine</tspan>
+      <tspan x="18" dy="15">• Circuit Breaker (N=5 trips)</tspan>
+      <tspan x="18" dy="15">• Auto-Repair Re-Injection</tspan>
+    </text>
+  </g>
+
+  <!-- =========================================================================
+       ZONE 3: GOOGLE CLOUD RUN (COMPUTE & API ENGINE) - CENTER PIECE
+       ========================================================================= -->
+  <g transform="translate(640, 140)" filter="url(#cardGlow)">
+    <rect width="200" height="290" rx="16" fill="#13151f" stroke="#2563eb" stroke-width="2.5" />
+    
+    <!-- Official Cloud Run Logo Symbol -->
+    <g transform="translate(20, 20)">
+      <rect width="44" height="44" rx="10" fill="url(#cloudRunGrad)" />
+      <!-- Cloud Run Hexagon Engine Icon -->
+      <polygon points="22,10 34,17 34,31 22,38 10,31 10,17" fill="none" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="22" cy="24" r="4" fill="#38bdf8" />
+      <path d="M 22 14 L 22 20 M 22 28 L 22 34 M 14 24 L 20 24 M 24 24 L 30 24" stroke="#ffffff" stroke-width="1.8" />
+    </g>
+
+    <text x="74" y="38" class="card-title">Cloud Run</text>
+    <text x="74" y="54" class="code-label">schemaforge-app</text>
+
+    <text x="20" y="90" class="card-body">
+      <tspan x="20" dy="0" font-weight="700" fill="#60a5fa">Stateless Compute Engine</tspan>
+      <tspan x="20" dy="18">• Concurrency: 80 conns/container</tspan>
+      <tspan x="20" dy="16">• Auto-Scale: 1 to 10 instances</tspan>
+      <tspan x="20" dy="16">• Zero Cold-Starts (Warm min-1)</tspan>
+      <tspan x="20" dy="16">• gVisor Container Sandbox</tspan>
+      <tspan x="20" dy="20" font-weight="700" fill="#60a5fa">FastAPI Clean Architecture</tspan>
+      <tspan x="20" dy="16">• /domain: Pure entities &amp; rules</tspan>
+      <tspan x="20" dy="16">• /application: Synthesis &amp; DLQ</tspan>
+      <tspan x="20" dy="16">• /infrastructure: GCP clients</tspan>
+      <tspan x="20" dy="16">• /api: Pydantic v2 &amp; RFC 7807</tspan>
+    </text>
+
+    <rect x="18" y="250" width="164" height="26" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1" />
+    <text x="100" y="267" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#6ee7b7">MTTR: 406.8ms (SLA &lt; 200ms)</text>
+  </g>
+
+  <!-- =========================================================================
+       ZONE 4: GOOGLE GEMINI 1.5 PRO / FLASH (NEURO-SYMBOLIC AI TIER)
+       ========================================================================= -->
+  <g transform="translate(1020, 140)" filter="url(#cardGlow)">
+    <rect width="240" height="190" rx="16" fill="#13151f" stroke="#9333ea" stroke-width="2" />
+    
+    <!-- Official Gemini 4-Point Starburst Logo -->
+    <g transform="translate(20, 20)">
+      <rect width="44" height="44" rx="10" fill="url(#geminiGrad)" />
+      <!-- Gemini Spark Star -->
+      <path d="M 22 10 Q 22 24 36 24 Q 22 24 22 38 Q 22 24 8 24 Q 22 24 22 10 Z" fill="#ffffff" />
+    </g>
+
+    <text x="74" y="38" class="card-title">Gemini 1.5 Engine</text>
+    <text x="74" y="54" class="code-label">Vertex AI / Google GenAI</text>
+
+    <text x="20" y="90" class="card-body">
+      <tspan x="20" dy="0" font-weight="700" fill="#c084fc">Neuro-Symbolic Program Synthesis</tspan>
+      <tspan x="20" dy="18">• Pure Python AST code generation</tspan>
+      <tspan x="20" dy="16">• Companion Pandera schema contracts</tspan>
+      <tspan x="20" dy="16">• AntiLoopingController (SHA-256 AST)</tspan>
+      <tspan x="20" dy="20" font-weight="700" fill="#c084fc">Conversational E-Com Copilot</tspan>
+      <tspan x="20" dy="16">• BigQuery domain semantic grounding</tspan>
+      <tspan x="20" dy="16">• Tri-Modal Vega-Lite chart generator</tspan>
+    </text>
+  </g>
+
+  <!-- =========================================================================
+       ZONE 5: GOOGLE CLOUD BIGQUERY (GOLD ANALYTICS LAKEHOUSE)
+       ========================================================================= -->
+  <g transform="translate(1020, 390)" filter="url(#cardGlow)">
+    <rect width="240" height="210" rx="16" fill="#13151f" stroke="#0284c7" stroke-width="2" />
+    
+    <!-- Official BigQuery Logo Symbol -->
+    <g transform="translate(20, 20)">
+      <rect width="44" height="44" rx="10" fill="url(#bigQueryGrad)" />
+      <!-- BigQuery Magnifying Glass Cylinder -->
+      <ellipse cx="22" cy="18" rx="12" ry="4" fill="#38bdf8" />
+      <path d="M 10 18 L 10 28 A 12 4 0 0 0 34 28 L 34 18 Z" fill="#ffffff" opacity="0.8" />
+      <circle cx="26" cy="26" r="6" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <line x1="31" y1="31" x2="36" y2="36" stroke="#38bdf8" stroke-width="2" />
+    </g>
+
+    <text x="74" y="38" class="card-title">Cloud BigQuery</text>
+    <text x="74" y="54" class="code-label">Dataset: gold_analytics</text>
+
+    <text x="20" y="90" class="card-body">
+      <tspan x="20" dy="0" font-weight="700" fill="#38bdf8">Reconciled Lakehouse Tables</tspan>
+      <tspan x="20" dy="18">• `fact_reconciled_orders`</tspan>
+      <tspan x="30" dy="14" font-size="10.5" fill="#94a3b8">Partition: Date, Cluster: MasterCust</tspan>
+      <tspan x="20" dy="18">• `dim_master_customer`</tspan>
+      <tspan x="30" dy="14" font-size="10.5" fill="#94a3b8">Survivor Rule: 98% Conf, Zero Drift</tspan>
+      <tspan x="20" dy="18">• Real-time streaming buffer inserts</tspan>
+    </text>
+  </g>
+
+  <!-- =========================================================================
+       ZONE 6: GOOGLE CLOUD LOGGING & AUDIT OBSERVABILITY
+       ========================================================================= -->
+  <g transform="translate(640, 520)" filter="url(#cardGlow)">
+    <rect width="200" height="130" rx="14" fill="#13151f" stroke="#0d9488" stroke-width="1.8" />
+    
+    <!-- Cloud Logging Shield Icon -->
+    <g transform="translate(18, 18)">
+      <rect width="36" height="36" rx="8" fill="url(#loggingGrad)" />
+      <!-- Logging Shield Icon -->
+      <path d="M 18 10 L 26 14 L 26 22 Q 26 28 18 30 Q 10 28 10 22 L 10 14 Z" fill="none" stroke="#fff" stroke-width="2" />
+      <line x1="14" y1="18" x2="22" y2="18" stroke="#fff" stroke-width="1.5" />
+      <line x1="14" y1="22" x2="20" y2="22" stroke="#fff" stroke-width="1.5" />
+    </g>
+
+    <text x="64" y="34" class="card-title">Cloud Logging</text>
+    <text x="64" y="48" class="code-label">Audit &amp; Telemetry</text>
+
+    <text x="18" y="74" class="card-body">
+      <tspan x="18" dy="0">• Structured JSON formatting</tspan>
+      <tspan x="18" dy="15">• Correlation &amp; Trace IDs</tspan>
+      <tspan x="18" dy="15">• Multi-Tenant Audit Logs</tspan>
+    </text>
+  </g>
+
+  <!-- =========================================================================
+       ZONE 7: CLIENT WORKSTATION / WEB SPA DASHBOARD (BOTTOM TIER)
+       ========================================================================= -->
+  <g transform="translate(480, 700)" filter="url(#cardGlow)">
+    <rect width="520" height="150" rx="16" fill="#13151f" stroke="#3b82f6" stroke-width="2" />
+    
+    <g transform="translate(24, 20)">
+      <rect width="40" height="40" rx="10" fill="#2563eb" />
+      <!-- Browser Window Icon -->
+      <rect x="8" y="10" width="24" height="20" rx="2" fill="none" stroke="#fff" stroke-width="1.8" />
+      <line x1="8" y1="16" x2="32" y2="16" stroke="#fff" stroke-width="1.2" />
+      <circle cx="12" cy="13" r="1" fill="#fff" />
+      <circle cx="16" cy="13" r="1" fill="#fff" />
+    </g>
+
+    <text x="76" y="38" class="card-title">Client Single Page Application (SPA)</text>
+    <text x="76" y="54" class="code-label">Linear / Vercel / Datadog Aesthetic Dashboard • HTTPS / SSE</text>
+
+    <text x="24" y="90" class="card-body">
+      <tspan x="24" dy="0">• View 1: Synthesis &amp; Chaos Engine (Live payload mutations, 406ms MTTR diff inspector)</tspan>
+      <tspan x="24" dy="16">• View 2: Observability &amp; Ingestion DAG (4 swimlanes, DQS 99.4% scorecards, DLQ quarantine)</tspan>
+      <tspan x="24" dy="16">• View 3: E-Commerce Copilot (Tri-Modal drawer, interactive Vega-Lite charts, BigQuery SQL)</tspan>
+    </text>
+  </g>
+
+  <!-- Legend & Protocols in Footer -->
+  <g transform="translate(60, 840)">
+    <line x1="0" y1="0" x2="24" y2="0" class="flow-line-success" />
+    <text x="32" y="4" font-family="sans-serif" font-size="11" fill="#94a3b8">Ingestion Stream (Pub/Sub &amp; BigQuery)</text>
+    
+    <line x1="280" y1="0" x2="304" y2="0" class="flow-line" />
+    <text x="312" y="4" font-family="sans-serif" font-size="11" fill="#94a3b8">Internal GCP API Calls (HTTPS / gRPC)</text>
+    
+    <line x1="560" y1="0" x2="584" y2="0" class="flow-line-dlq" />
+    <text x="592" y="4" font-family="sans-serif" font-size="11" fill="#f43f5e">Dead-Letter Quarantine (Poison-Pills)</text>
+    
+    <text x="1200" y="4" class="code-label" fill="#64748b">PROJECT: project-29e65474-32d7-45e0-803 • us-central1</text>
+  </g>
+</svg>

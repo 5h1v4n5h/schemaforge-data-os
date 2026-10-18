@@ -42,6 +42,8 @@ Enterprises lose over **$100 Billion annually** to data downtime and broken ETL/
 | [**System Architecture & Technical Manual**](docs/ARCHITECTURE_AND_SYSTEM_MANUAL.md) | Comprehensive engineering manual, GCP services matrix, and end-to-end data flow. |
 | [**Executive Pitch Deck**](docs/PITCH_DECK.md) | 10-slide enterprise presentation deck with problem-solution narrative and ROI metrics. |
 | [**Video Pitch & Demo Script**](docs/DEMO_VIDEO_SCRIPT.md) | Timecoded 5-minute video presentation script with exact narration and click paths. |
+| [**Executive Pitch Deck (.pptx)**](docs/SchemaForge_DataOS_PitchDeck.pptx) | **Complete 10-slide PowerPoint Presentation (.pptx)** with 16:9 dark-mode slides and architecture embeds. |
+| [**Pitch Deck Transcript (Markdown)**](docs/PITCH_DECK.md) | Markdown transcript of the 10-slide enterprise presentation deck. |
 | [**Evaluator Showcase Walkthrough**](docs/SHOWCASE_WALKTHROUGH.md) | Step-by-step evaluator testing paths for live chaos drills, DLQ inspection, and Copilot queries. |
 | [**Public GitHub Setup Guide**](docs/GITHUB_SETUP_GUIDE.md) | Step-by-step instructions for publishing this clean, credential-free repository to GitHub. |
 | [**Standard Operating Procedures (SOP)**](docs/SOP_OPERATIONAL_RUNBOOK.md) | Operational runbooks for running chaos drills, handling DLQs, and deploying on Cloud Run. |
@@ -49,6 +51,14 @@ Enterprises lose over **$100 Billion annually** to data downtime and broken ETL/
 ---
 
 ## 🏗️ Google Cloud Native System Architecture
+
+<p align="center">
+  <img src="docs/assets/gcp_system_architecture_diagram.jpg" alt="SchemaForge Google Cloud System Architecture Diagram" width="100%" style="border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); border: 1px solid #26293b;" />
+</p>
+
+<p align="center">
+  <a href="docs/assets/gcp_service_architecture_blueprint.svg">👉 <strong>Open High-Resolution Vector Blueprint (SVG with Official Google Cloud Logos)</strong></a>
+</p>
 
 ```
 +---------------------------------------------------------------------------------------------+
