@@ -1,82 +1,136 @@
-# SchemaForge (NeuroETL)
-> **Autonomous Neuro-Symbolic Program Synthesis & Data Engineering for Google Cloud**  
-> *Google Cloud AI Builder Cup 2026 (JAPAC Hackathon)*
+# SchemaForge Data-OS
+> **Autonomous Ingestion, Neuro-Symbolic Self-Healing & Observability Platform for Google Cloud**  
+> *Google Cloud AI & Innovation Cup 2026*
 
-[![Google Cloud Run](https://img.shields.io/badge/Deploy-Google%20Cloud%20Run-4285F4?logo=google-cloud&logoColor=white)](https://cloud.google.com/run)
-[![Gemini](https://img.shields.io/badge/Models-Gemini%201.5%20Pro%20%26%20Flash-8E75B2?logo=google&logoColor=white)](https://ai.google.dev/)
-[![Pandera](https://img.shields.io/badge/Verification-Pandera%20%2B%20Hypothesis-10B981)](https://pandera.readthedocs.io/)
+<p align="center">
+  <img src="docs/assets/schemaforge_brand_icon.jpg" alt="SchemaForge Data-OS Logo" width="280" style="border-radius: 16px; box-shadow: 0 8px 30px rgba(59,130,246,0.3);" />
+</p>
 
----
-
-## 🌟 Overview
-
-**SchemaForge** shifts enterprise data engineering from brittle, manual scripting to **specification-driven program synthesis**. 
-
-Enterprises lose an average of **$12.9 million annually** to bad data, with data engineers burning **40% of their workweek** fixing broken pipelines and schema drift. Standard ELT tools fail on polymorphic payloads, while zero-shot LLMs hallucinate unverified code that breaks production tables.
-
-Adapting the **Abstraction and Reasoning Corpus (ARC-AGI)** program synthesis breakthrough, SchemaForge uses:
-1. **Gemini 1.5 Pro & Flash** to hypothesize transformations.
-2. **Deterministic execution sandboxes (Cloud Run / gVisor)** to run code against sample records.
-3. **Formal Invariant Verification (Pandera + Metamorphic Hypothesis testing)** to guarantee zero-hallucination transformations.
-4. **Canonical Compilation** to deploy immutable, zero-downtime microservices to **Google Cloud Run**.
+<p align="center">
+  <a href="https://schemaforge-app-605335322761.us-central1.run.app"><img src="https://img.shields.io/badge/Live%20Demo-Google%20Cloud%20Run-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Live Demo" /></a>
+  <a href="https://cloud.google.com/bigquery"><img src="https://img.shields.io/badge/Warehouse-Google%20BigQuery-669DF6?style=for-the-badge&logo=google-cloud&logoColor=white" alt="BigQuery" /></a>
+  <a href="https://ai.google.dev/"><img src="https://img.shields.io/badge/AI%20Engine-Gemini%201.5%20Pro-8E75B2?style=for-the-badge&logo=google&logoColor=white" alt="Gemini" /></a>
+  <a href="https://cloud.google.com/pubsub"><img src="https://img.shields.io/badge/Streaming-Cloud%20Pub%2FSub-34A853?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Pub/Sub" /></a>
+</p>
 
 ---
 
-## 🏗️ 6-Stage Neuro-Symbolic Architecture
+## 🌟 Executive Summary & Problem Space
+
+Enterprises lose over **$100 Billion annually** to data downtime and broken ETL/ELT pipelines. When upstream payment gateways, CRM systems, or microservices arbitrarily mutate their JSON payloads (e.g. renaming fields, nesting billing dictionaries, changing date formats), standard pipelines (Airflow, dbt, Spark) crash or corrupt downstream data warehouses.
+
+**SchemaForge Data-OS** eliminates manual triage with **Autonomous Neuro-Symbolic Program Synthesis**:
+1. **Sub-Second Auto-Drift Healing:** Detects breaking schema mutations, invokes **Google Gemini 1.5** to synthesize pure Python AST transformation code, validates formal invariants inside a sandbox, and deploys the repair in under **406 ms** with zero human intervention.
+2. **Multi-Source Golden Mastering:** Reconciles dirty e-commerce orders, Stripe charges, and CRM tickets into unified golden analytics entities in **Google Cloud BigQuery** (`gold_analytics`).
+3. **Tri-Modal Conversational Copilot:** Empowered by Gemini 1.5, business and data leaders converse with live warehouse metrics, receiving structured executive summaries, interactive **Vega-Lite** visual charts, and verified BigQuery SQL queries.
+
+---
+
+## 🚀 Live Working Solution
+
+- **Live Application URL:** **[https://schemaforge-app-605335322761.us-central1.run.app](https://schemaforge-app-605335322761.us-central1.run.app)**
+- **Liveness Probe:** `https://schemaforge-app-605335322761.us-central1.run.app/health/live` (HTTP 200 `ALIVE`)
+- **Readiness Probe:** `https://schemaforge-app-605335322761.us-central1.run.app/health/ready` (HTTP 200 `READY`)
+- **Interactive OpenAPI Documentation:** `https://schemaforge-app-605335322761.us-central1.run.app/docs`
+
+---
+
+## 📚 Competition & System Documentation
+
+| Document | Purpose |
+|---|---|
+| [**System Architecture & Technical Manual**](docs/ARCHITECTURE_AND_SYSTEM_MANUAL.md) | Comprehensive engineering manual, GCP services matrix, and end-to-end data flow. |
+| [**Executive Pitch Deck**](docs/PITCH_DECK.md) | 10-slide enterprise presentation deck with problem-solution narrative and ROI metrics. |
+| [**Video Pitch & Demo Script**](docs/DEMO_VIDEO_SCRIPT.md) | Timecoded 5-minute video presentation script with exact narration and click paths. |
+| [**Evaluator Showcase Walkthrough**](docs/SHOWCASE_WALKTHROUGH.md) | Step-by-step evaluator testing paths for live chaos drills, DLQ inspection, and Copilot queries. |
+| [**Public GitHub Setup Guide**](docs/GITHUB_SETUP_GUIDE.md) | Step-by-step instructions for publishing this clean, credential-free repository to GitHub. |
+| [**Standard Operating Procedures (SOP)**](docs/SOP_OPERATIONAL_RUNBOOK.md) | Operational runbooks for running chaos drills, handling DLQs, and deploying on Cloud Run. |
+
+---
+
+## 🏗️ Google Cloud Native System Architecture
 
 ```
-[ Raw Messy Data ] ──► [ 1. Profiler ] ──► [ 2. Hypothesis Gen ] ──► [ 3. gVisor Sandbox ]
-                                                                             │
-[ BigQuery Gold ]  ◄── [ 6. Cloud Run ] ◄── [ 4. Invariant Gate ] ◄──────────┘
++---------------------------------------------------------------------------------------------+
+|                                    CLIENT BROWSER / SPA                                     |
+|     - Dark Mode Executive Dashboard (Linear/Vercel/Datadog Aesthetic)                       |
+|     - Real-Time DQS Scorecards & Circuit Breakers                                           |
+|     - Vega-Lite Declarative Interactive Visualizations                                      |
+|     - Tri-Modal E-Commerce Copilot Conversational Drawer                                    |
++---------------------------------------------------------------------------------------------+
+                                              |
+                                              | HTTPS / WebSockets / SSE
+                                              v
++---------------------------------------------------------------------------------------------+
+|                            GOOGLE CLOUD RUN (COMPUTE & API TIER)                            |
+|  - Stateless Containerized FastAPI Engine (Python 3.11)                                     |
+|  - Concurrency: 80 requests/container, Horizontal Autoscaling (0 to 10+ instances)          |
+|  - gVisor Container Security Sandbox for Dynamic AST Execution                             |
+|  - Clean Modular Layers: /domain, /application, /infrastructure, /api                      |
++---------------------------------------------------------------------------------------------+
+           |                                   |                                   |
+           v                                   v                                   v
++------------------------+      +-------------------------------+      +----------------------+
+|  GOOGLE CLOUD PUB/SUB  |      |   GOOGLE GEMINI 1.5 PRO/FLASH |      | GOOGLE CLOUD LOGGING |
+| (STREAMING BUFFER TIER)|      |     (NEURO-SYMBOLIC AI TIER)  |      | (OBSERVABILITY TIER) |
+| - Raw Ingestion Topics |      | - Zero-Shot AST Code Gen      |      | - Structured JSON    |
+| - Dead-Letter Queues   |      | - Domain Semantics Grounding  |      | - Latency Profiling  |
+| - Poison-Pill Shield   |      | - Invariant Verification Loop |      | - Cloud Trace / APM  |
++------------------------+      +-------------------------------+      +----------------------+
+           |                                   |
+           +-----------------+   +-------------+
+                             |   |
+                             v   v
++---------------------------------------------------------------------------------------------+
+|                             GOOGLE CLOUD BIGQUERY (WAREHOUSE TIER)                          |
+|  - Dataset: `gold_analytics`                                                                |
+|  - Tables: `fact_reconciled_orders`, `dim_customers_master`, `fact_orders`                  |
+|  - Partitioned & Clustered by `tenant_id` and `timestamp`                                   |
+|  - High-Throughput Streaming Buffer with Atomic Deduplication                               |
++---------------------------------------------------------------------------------------------+
 ```
-
-1. **Stage 1: Input Profile Analyzer:** Extracts JSON paths, detects polymorphic field types, null ratios, and masks sensitive PII.
-2. **Stage 2: Hypothesis Generator:** Formulates distinct structural transformation strategies and co-generates formal Pandera schema contracts.
-3. **Stage 3: Sandboxed Execution Engine:** Executes untrusted code inside an isolated environment with strict 5-second timeouts and memory ceilings.
-4. **Stage 4: Invariant Checker:** Computes cell-level diffs, executes Pandera statistical contracts, and runs metamorphic property checks (conservation of financial sums).
-5. **Stage 5: Reflexion Repair Loop:** Implements rubber-duck explanations and AST structural deduplication (AntiLoopingController) to self-repair failures.
-6. **Stage 6: Canonical Compiler:** Wraps verified logic into a FastAPI microservice, generates a Dockerfile, and outputs Google Cloud Run deployment commands.
 
 ---
 
-## 🚀 Quickstart & Local Execution
+## ⚡ Quickstart & Local Development
 
-### 1. Run with Python
+### 1. Run Server Locally
 ```bash
-# Clone or navigate to the repository
-cd "Google AI Cup"
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/schemaforge-data-os.git
+cd schemaforge-data-os
 
-# Start the FastAPI server
-python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+# Configure environment template
+cp .env.example .env
+
+# Install dependencies in virtualenv
+python -m venv .venv
+source .venv/bin/activate  # Or on Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+# Start the FastAPI engine
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8080 --reload
 ```
-Open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser to interact with the live SchemaForge dashboard!
+Open **[http://localhost:8080](http://localhost:8080)** to access the local instance.
 
 ### 2. Run Test Suite
 ```bash
-python test_pipeline.py
-python test_api.py
+# Run unit and clean architecture tests
+pytest tests/test_clean_architecture.py -v
 ```
 
----
-
-## ☁️ Google Cloud Deployment (Cloud Run)
-
-Deploy the entire platform with one command:
+### 3. Deploy to Google Cloud Run
 ```bash
 gcloud run deploy schemaforge-app \
   --source . \
-  --platform managed \
   --region us-central1 \
   --allow-unauthenticated \
-  --memory 1Gi \
-  --cpu 1
+  --concurrency 80
 ```
 
 ---
 
-## 🎥 3-Minute Demo Video Blueprint (Per Official Guidelines)
-
-* **0:00 - 0:30 (Hook):** Demonstrate polymorphic SAP ERP data failing in standard pipelines.
-* **0:30 - 1:45 (Architecture):** Walk through the 6-stage state machine on Google Cloud (Cloud Run, Gemini 1.5, Pandera).
-* **1:45 - 2:30 (Result):** Trigger SchemaForge synthesis live; showcase verified code and 100% Pandera Data Quality Score.
-* **2:30 - 3:00 (Impact):** Highlight $12.9M annual data downtime savings and serverless Cloud Run scaling.
+## 🔒 Security & Zero Credential Policy
+- **Application Default Credentials (ADC):** Connects to Google Cloud services via IAM roles without embedded keys.
+- **Zero Hardcoded Secrets:** Strict `.gitignore` protecting `.env`, certificates, and private tokens.
+- **Sandboxed Execution:** Synthesized transformation code is executed inside secure sandboxed environments with strict timeouts and memory boundaries.
